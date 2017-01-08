@@ -1,64 +1,52 @@
 var canvas = document.getElementById("spriteCanvas");
-//var context = canvas.getContext("2d");
+var context = canvas.getContext("2d");
 
 var spriteImg = new Image();
 spriteImg.src = "sprite.png";
 
-function sprite(options){
-	var that = {};
+var ticks = 0;
+
+function spriteImage(image,width,height,frames,rows){
+	this.image = image;
+	this.width = width;
+	this.height = height;
+	this.frames = frames;
+	this.rows = rows;
 	
-	that.frameIndex = 0,
-	that.tickCount = 0,
-	that.ticksPerFrame = options.ticksPerFrame;
-	that.numberOfFrames = options.numberOfFrames;
-	
-	that.context = options.context;
-	that.width = options.width;
-	that.height = options.height;
-	that.image = options.image;
-	
-	that.render = function(){
-		that.context.drawImage(
-			that.image,
-			that.frameIndex * that.width / that.numberOfFrames,
-			0,
-			that.width / that.numberOfFrames,
-			that.height,
-			0,
-			0,
-			that.width / that.numberOfFrames,
-			that.height
-		);
-	}
-	
-	that.update = function(){
-		that.tickCount += 1;
-		that.context.clearRect(0,0,that.width,that.height)
-		if(that.tickCount > that.ticksPerFrame){
-			that.tickCount = 0;
-			that.frameIndex += 1;
-		}
-		that.frameIndex = that.frameIndex % that.numberOfFrames;
-	}
-	
-	return that;
+	this.frameIndex = 0;
 }
 
-var jump = sprite({
-	context: canvas.getContext("2d"),
-	width: 612,
-	height: 148,
-	image: spriteImg,
-	ticksPerFrame: 7,
-	numberOfFrames: 6,
-	
-});
-
-function spriteLoop(){
-	window.requestAnimationFrame(spriteLoop);
-	
-	jump.update();
-	jump.render();
+function render(object){
+	context.clearRect(0,0,canvas.width,canvas.height);
+	context.drawImage(
+		object.image,											//Image
+		object.frameIndex * (object.width / object.frames),		//Source X
+		0,														//Source Y
+		object.width / object.frames,							//Source Width
+		object.height / object.rows,							//Source Height
+		0,														//Destination X
+		0,														//Destination Y
+		object.width / object.frames,							//Frame Width
+		object.height / object.rows								//Frame Height
+	);
+	if(object.frameIndex >= object.frames - 1){
+		object.frameIndex = 0;
+	}else{
+		object.frameIndex ++;
+	}	
 }
 
-spriteImg.addEventListener("load", spriteLoop);
+var walk = new spriteImage(spriteImg,612,148,6,1);
+
+function updateLoop(){
+	window.requestAnimationFrame(updateLoop);
+	
+	if(ticks >= 7){
+		render(walk);
+		ticks = 0;
+	}else{
+		ticks ++;
+	}
+}
+
+spriteImg.addEventListener("load", updateLoop);
