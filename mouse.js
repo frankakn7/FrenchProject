@@ -8,12 +8,12 @@ canvas.addEventListener('mousemove', function(evt){
 		mouseY = evt.offsetY;
 	}
 	
-	if(!(click) && !(first.clicked)){
+	if(!(click) && first.clickStatus != 3){
 		if(first.click(mouseX,mouseY)){
-			first.color = 'gray';
+			first.clickStatus = 1;
 			first.draw();
 		}else{
-			first.color = 'black';
+			first.clickStatus = 0;
 			first.draw();
 		}
 	}
@@ -22,7 +22,7 @@ canvas.addEventListener('mousemove', function(evt){
 canvas.addEventListener('mousedown', function(evt){
 	if(evt.button === 0){
 		if(first.click(mouseX,mouseY)){
-			first.color = 'green';
+			first.clickStatus = 2;
 			first.draw();
 		}
 		click = true;
@@ -32,10 +32,10 @@ canvas.addEventListener('mousedown', function(evt){
 canvas.addEventListener('mouseup', function(evt){
 	if(evt.button === 0){
 		if(first.click(mouseX,mouseY)){
-			if(first.clicked){
-				first.clicked = false;
+			if(first.clickStatus === 3){
+				first.clickStatus = 0;
 			}else{
-				first.clicked = true;
+				first.clickStatus = 3;
 			}	
 			first.draw();
 		}

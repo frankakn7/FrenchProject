@@ -7,11 +7,17 @@ function button(x,y,width,height){
 	this.width = width;
 	this.height = height;
 	this.color = 'black';
-	this.clicked = false;
+	this.clickStatus = 0;
 	
 	this.draw = function(){
-		if(this.clicked){
+		if(this.clickStatus === 3){
 			this.color = 'blue';
+		}else if(this.clickStatus === 2){
+			this.color = 'green';
+		}else if(this.clickStatus === 1){
+			this.color = 'gray';
+		}else{
+			this.color = 'black';
 		}
 		context.fillStyle = this.color;
 		context.clearRect(this.x,this.y,this.width,this.height);
