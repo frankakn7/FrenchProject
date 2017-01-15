@@ -1,0 +1,15 @@
+.scene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: all 2s ease-out;
+  -moz-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}	
+.scene.out {
+	top: -150%;
+}
+
+.scene.in {
+	top: 0;
+}

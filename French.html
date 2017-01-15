@@ -1,11 +1,22 @@
-	<html>
-		<head>
-			<h1>French Project</h1>
-		</head>
-		<body>
+<html>
+	<head>
+		<h1>French Project</h1>
+		<section id="game" class="row">
+			<div id="Start" class="scene">
+				<h1>Start The Game</h1>
+			</div>
+			<div id="InGame" class="scene out">
+				<h1>Game Started</h1>
+			</div>
 			<canvas id="spriteCanvas" width="750" height="500" style="border:1px solid #000000;"></canvas>
-			<script src="button.js"></script>
-			<script src="mouse.js"></script>
-			<script src="update.js"></script>
-		</body>
-	</html>
+		</section>
+	</head>
+	<body>
+		<script src="button.js"></script>
+		<script src="mouse.js"></script>
+		<script src="update.js"></script>
+		<script src="scenes.js"></script>
+		<script src="gameFlow.js"></script>
+		<link rel="stylesheet" href="French.css">
+	</body>
+</html>
