@@ -45,12 +45,13 @@ document.onkeydown = function (event) {
         keys.up = true;
 }
 document.onkeyup = function (event) {
-    if (event.keyCode === 39 && keys.right === true)
+    if (event.keyCode === 39 && keys.right === true){
         keys.right = false;
-    else if (event.keyCode === 40 && keys.down === true)
+    }else if (event.keyCode === 40 && keys.down === true{
         keys.down = false;
-    else if (event.keyCode === 37 && keys.left === true)
+    }else if (event.keyCode === 37 && keys.left === true){
         keys.left = false;
-    else if (event.keyCode === 38 && keys.up === true)
+    }else if (event.keyCode === 38 && keys.up === true){
         keys.up = false;
+    }
 }
