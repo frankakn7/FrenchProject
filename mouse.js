@@ -1,39 +1,30 @@
 var mouseX, mouseY;
-
 var click = false;
 
-canvas.addEventListener('mousemove', function(evt){
-	if(evt.offsetX) {
+//Start button
+sCanvas.addEventListener('mousemove', function(evt){
+	if (evt.offsetX) {
 		mouseX = evt.offsetX;
 		mouseY = evt.offsetY;
 	}
 	
-	if(!(click)){
-		if(first.onButton(mouseX,mouseY)){
-			first.color = 'grey';
-			first.draw();
-		}else{
-			first.color = 'black';
-			first.draw();
-		}
+	if (!click) {
+	    sButton.onButton(mouseX, mouseY, click);
 	}
 });
 
-canvas.addEventListener('mousedown', function(evt){
-	if(evt.button === 0){
-		if(first.onButton(mouseX,mouseY)){
-			first.color = 'black';
-			first.draw();
-		}
-		click = true;
+sCanvas.addEventListener('mousedown', function(evt){
+    if (evt.button === 0) {
+	    click = true;
+	    sButton.onButton(mouseX, mouseY, click);
 	}
 });
 
-canvas.addEventListener('mouseup', function(evt){
-	if(evt.button === 0){
-		if(first.onButton(mouseX,mouseY)){
-			game.flow.inGame();
-		}
+sCanvas.addEventListener('mouseup', function(evt){
+    if (evt.button === 0) {
 		click = false;
+		if (sButton.onButton(mouseX, mouseY, click)) {
+		    gameState(inGame);
+		}
 	}
 });
