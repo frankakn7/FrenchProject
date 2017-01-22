@@ -47,7 +47,7 @@ document.onkeydown = function (event) {
 document.onkeyup = function (event) {
     if (event.keyCode === 39 && keys.right === true){
         keys.right = false;
-    }else if (event.keyCode === 40 && keys.down === true{
+    }else if (event.keyCode === 40 && keys.down === true){
         keys.down = false;
     }else if (event.keyCode === 37 && keys.left === true){
         keys.left = false;
