@@ -1,0 +1,11 @@
+To Do:
+	-scenes
+		-intro
+		-game
+			-photo wall
+			-interrogation
+			-evidence
+		-ending
+	-sprite Animation
+		-speaking
+		-photo wall movement
