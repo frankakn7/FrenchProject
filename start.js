@@ -1,7 +1,6 @@
 var sCanvas = document.getElementById("startCanvas");
 var sContext = sCanvas.getContext("2d");
 sContext.font = '30px Arial';
-var game = window;
 
 function button(x, y, width, height, text) {
     this.x = x;
@@ -10,6 +9,7 @@ function button(x, y, width, height, text) {
     this.height = height;
     this.color = 'black';
     this.text = text;
+	this.lock = false;
 
     this.draw = function () {
         sContext.fillStyle = this.color;
@@ -18,17 +18,23 @@ function button(x, y, width, height, text) {
         sContext.fillStyle = 'white';
         sContext.fillText(this.text, this.x + 5, this.y + 35);
     }
-
+    
     this.onButton = function (mx, my, click) {
         if (mx >= this.x && mx <= this.x + this.width &&
-			my >= this.y && my <= this.y + this.height && !click) {
+			my >= this.y && my <= this.y + this.height && !click && !this.lock) {
             this.color = 'grey';
             this.draw();
             return true;
         } else {
-            this.color = 'black';
-            this.draw();
-            return false;
+	        if(!this.lock){
+            	this.color = 'black';
+				this.draw();
+				return false;
+			}else{
+				this.color = 'grey';
+				this.draw();
+				return false;
+			}
         }
     }
 }

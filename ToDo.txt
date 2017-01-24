@@ -1,6 +1,9 @@
 To Do:
+	-Buttons
+		-easy adding of buttons
 	-scenes
-		-intro
+		-start
+		-prolog
 		-game
 			-photo wall
 			-interrogation
