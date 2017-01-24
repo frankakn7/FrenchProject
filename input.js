@@ -1,5 +1,6 @@
 var mouseX, mouseY;
 var click = false;
+var push = false;
 
 //mouse
 sCanvas.addEventListener('mousemove', function(evt){
@@ -7,25 +8,22 @@ sCanvas.addEventListener('mousemove', function(evt){
 		mouseX = evt.offsetX;
 		mouseY = evt.offsetY;
 	}
-	
-	if (!click) {
-	    sButton.onButton(mouseX, mouseY, click);
-	}
 });
 sCanvas.addEventListener('mousedown', function(evt){
     if (evt.button === 0) {
-	    click = true;
-	    sButton.onButton(mouseX, mouseY, click);
+	    push = true;
 	}
 });
 sCanvas.addEventListener('mouseup', function(evt){
     if (evt.button === 0) {
-		click = false;
-		if (sButton.onButton(mouseX, mouseY, click)) {
-		    gameState(inGame);
-		}
-	}
+        push = false;
+        click = true;
+    }
 });
+    function initPack() {
+        sButton.onButton(mouseX, mouseY, click);
+        click = false;
+    }
 
 //keys
 var keys = {
@@ -55,3 +53,8 @@ document.onkeyup = function (event) {
         keys.up = false;
     }
 }
+
+function update() {
+    initPack();
+}
+setInterval(update, 1000 / 30);

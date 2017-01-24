@@ -21,19 +21,21 @@ function button(x, y, width, height, text) {
     
     this.onButton = function (mx, my, click) {
         if (mx >= this.x && mx <= this.x + this.width &&
-			my >= this.y && my <= this.y + this.height && !click && !this.lock) {
-            this.color = 'grey';
-            this.draw();
-            return true;
+			my >= this.y && my <= this.y + this.height && !this.lock) {
+            if (!click) {
+                this.color = 'grey';
+                this.draw();
+            } else {
+                if (click)
+                    gameState(inGame);
+            }
         } else {
 	        if(!this.lock){
             	this.color = 'black';
 				this.draw();
-				return false;
 			}else{
 				this.color = 'grey';
 				this.draw();
-				return false;
 			}
         }
     }
