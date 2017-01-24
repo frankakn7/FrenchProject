@@ -5,6 +5,7 @@ var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 context.font = '30px Arial';
 
+var canv = sCanvas;
 
 //game flow
 var start = document.getElementById("Start");
@@ -15,4 +16,10 @@ function gameState(state) {
     start.style.display = 'none';
 
     state.style.display = 'inline-block';
+
+    canv = canvas;
+    listen();
+
+    context.fillStyle = 'red';
+    context.fillRect(canvas.width / 2 - 125, 10, 250, 450);
 }
