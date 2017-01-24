@@ -1,5 +1,10 @@
+var sCanvas = document.getElementById("startCanvas");
+var sContext = sCanvas.getContext("2d");
+sContext.font = '30px Arial';
 var canvas = document.getElementById("gameCanvas");
-var context = sCanvas.getContext("2d");
+var context = canvas.getContext("2d");
+context.font = '30px Arial';
+
 
 //game flow
 var start = document.getElementById("Start");

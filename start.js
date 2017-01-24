@@ -1,22 +1,20 @@
-var sCanvas = document.getElementById("startCanvas");
-var sContext = sCanvas.getContext("2d");
-sContext.font = '30px Arial';
 
-function button(x, y, width, height, text) {
+function button(x, y, width, height, text, ctx) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.color = 'black';
     this.text = text;
-	this.lock = false;
+    this.lock = false;
+    this.ctx = ctx;
 
     this.draw = function () {
-        sContext.fillStyle = this.color;
-        sContext.clearRect(this.x, this.y, this.width, this.height);
-        sContext.fillRect(this.x, this.y, this.width, this.height);
-        sContext.fillStyle = 'white';
-        sContext.fillText(this.text, this.x + 5, this.y + 35);
+        this.ctx.fillStyle = this.color;
+        this.ctx.clearRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillStyle = 'white';
+        this.ctx.fillText(this.text, this.x + 5, this.y + 35);
     }
     
     this.onButton = function (mx, my, click) {
@@ -41,6 +39,7 @@ function button(x, y, width, height, text) {
     }
 }
 
-var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start');
-
+var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', sContext);
+var Q1 = new button((canvas.width / 2) + 50, (canvas.height / 2) + 25, 100, 50, 'Q1', context);
+var Q2 = new button((canvas.width / 2) - 50, (canvas.height / 2) + 25, 100, 50, 'Q2', context);
 sButton.draw();

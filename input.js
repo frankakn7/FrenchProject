@@ -22,6 +22,8 @@ sCanvas.addEventListener('mouseup', function(evt){
 });
     function initPack() {
         sButton.onButton(mouseX, mouseY, click);
+        Q1.onButton(mouseX, mouseY, click);
+        Q2.onButton(mouseX, mouseY, click);
         click = false;
     }
 
