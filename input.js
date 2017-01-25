@@ -30,6 +30,7 @@ function listen() {
         sButton.onButton(mouseX, mouseY, click);
         Q1.onButton(mouseX, mouseY, click);
         Q2.onButton(mouseX, mouseY, click);
+        Q3.onButton(mouseX, mouseY, click);
         click = false;
     }
     listen();
@@ -59,7 +60,8 @@ document.onkeyup = function (event) {
         keys.down = false;
     }else if (event.keyCode === 37 && keys.left === true){
         keys.left = false;
-    }else if (event.keyCode === 38 && keys.up === true){
+    } else if (event.keyCode === 38 && keys.up === true) {
+        gameState(end);
         keys.up = false;
     }
 }

@@ -25,6 +25,7 @@ function button(x, y, width, height, text, ctx) {
                 this.draw();
             } else {
                 if (click)
+                    console.log(this.text);
                     gameState(inGame);
             }
         } else {
@@ -42,4 +43,5 @@ function button(x, y, width, height, text, ctx) {
 var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', sContext);
 var Q1 = new button(5, 390, 490, 50, 'Q1', context);
 var Q2 = new button(5, 445, 490, 50, 'Q2', context);
+var Q3 = new button(5, 445, 490, 50, 'Q3', eContext);
 sButton.draw();
