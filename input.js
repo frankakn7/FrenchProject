@@ -4,22 +4,16 @@ var push = false;
 
 //mouse
 function listen() {
-    canv.addEventListener('mousemove', function (evt) {
+    canvas.addEventListener('mousemove', function (evt) {
         mouseX = evt.offsetX;
         mouseY = evt.offsetY;
-        /*
-        if (evt.offsetX) {
-            mouseX = evt.offsetX;
-            mouseY = evt.offsetY;
-        }
-        */
     });
-    canv.addEventListener('mousedown', function (evt) {
+    canvas.addEventListener('mousedown', function (evt) {
         if (evt.button === 0) {
             push = true;
         }
     });
-    canv.addEventListener('mouseup', function (evt) {
+    canvas.addEventListener('mouseup', function (evt) {
         if (evt.button === 0) {
             push = false;
             click = true;
@@ -27,9 +21,12 @@ function listen() {
     });
 }
     function initPack() {
-        sButton.onButton(mouseX, mouseY, click);
-        Q1.onButton(mouseX, mouseY, click);
-        Q2.onButton(mouseX, mouseY, click);
+        if(scene === 1){
+        	sButton.onButton(mouseX, mouseY, click);
+		}else if(scene === 2){
+			Q1.onButton(mouseX, mouseY, click);
+			Q2.onButton(mouseX, mouseY, click);
+		}
         click = false;
     }
     listen();

@@ -1,25 +1,29 @@
-var sCanvas = document.getElementById("startCanvas");
-var sContext = sCanvas.getContext("2d");
-sContext.font = '30px Arial';
-var canvas = document.getElementById("gameCanvas");
+var canvas = document.getElementById("startCanvas");
 var context = canvas.getContext("2d");
 context.font = '30px Arial';
 
-var canv = sCanvas;
+var scene = 1;
 
 //game flow
 var start = document.getElementById("Start");
 var inGame = document.getElementById("InGame");
+var Ending = document.getElementById("Ending");
 
-function gameState(state) {
+function gameState(state,canv) {
     InGame.style.display = 'none';
     start.style.display = 'none';
+    Ending.style.display = 'none';
 
     state.style.display = 'inline-block';
-
-    canv = canvas;
+	
+	canvas = document.getElementById(canv);
+	context = canvas.getContext("2d");
+	context.font = '30px Arial';
+	
     listen();
-
-    context.fillStyle = 'red';
-    context.fillRect(canvas.width / 2 - 125, 10, 250, 450);
+    
+    sButton = 0;
+    scene = 2;
+    
+    
 }

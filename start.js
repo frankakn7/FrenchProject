@@ -1,4 +1,6 @@
-function button(x, y, width, height, text, ctx) {
+var Q1, Q2;
+
+function button(x, y, width, height, text, ctx,clickFunction) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -6,16 +8,20 @@ function button(x, y, width, height, text, ctx) {
     this.color = 'black';
     this.text = text;
     this.lock = false;
-    this.ctx = ctx;
 
     this.draw = function () {
-        this.ctx.fillStyle = this.color;
-        this.ctx.clearRect(this.x, this.y, this.width, this.height);
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
-        this.ctx.fillStyle = 'white';
-        this.ctx.fillText(this.text, this.x + 5, this.y + 35);
-
+	    if(this.lock){
+		    context.clearRect(this.x, this.y, this.width, this.height);
+	    }else{
+	        context.fillStyle = this.color;
+	        context.clearRect(this.x, this.y, this.width, this.height);
+	        context.fillRect(this.x, this.y, this.width, this.height);
+	        context.fillStyle = 'white';
+	        context.fillText(this.text, this.x + 5, this.y + 35);
+		}
     }
+    
+    this.clickFunction = clickFunction;
     
     this.onButton = function (mx, my, click) {
         if (mx >= this.x && mx <= this.x + this.width &&
@@ -25,21 +31,20 @@ function button(x, y, width, height, text, ctx) {
                 this.draw();
             } else {
                 if (click)
-                    gameState(inGame);
+                console.log(this.text);
+                    this.clickFunction();
             }
         } else {
 	        if(!this.lock){
             	this.color = 'black';
 				this.draw();
 			}else{
-				this.color = 'grey';
 				this.draw();
 			}
         }
     }
 }
-
-var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', sContext);
-var Q1 = new button(5, 390, 490, 50, 'Q1', context);
-var Q2 = new button(5, 445, 490, 50, 'Q2', context);
+var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start', context, function(){	gameState(inGame,"gameCanvas");
+																													Q1 = new button(5, 390, 490, 50, 'Q1', context,function(){gameState(Ending,"endCanvas")});
+																													Q2 = new button(5, 445, 490, 50, 'Q2', context,function(){console.log("2")});});
 sButton.draw();
