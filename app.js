@@ -11,16 +11,18 @@ eContext.font = '30px Arial';
 var canv = sCanvas;
 
 //game flow
-var start = document.getElementById("Start");
-var inGame = document.getElementById("InGame");
+var start = document.getElementById("start");
+var inGame = document.getElementById("inGame");
 var end = document.getElementById("end");
 
+var gState = start;
 function gameState(state) {
-    InGame.style.display = 'none';
+    inGame.style.display = 'none';
     start.style.display = 'none';
     end.style.display = 'none';
 
     state.style.display = 'inline-block';
+    gState = state;
 
     if (state === inGame) {
         canv = canvas;

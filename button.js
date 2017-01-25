@@ -1,4 +1,4 @@
-function button(x, y, width, height, text, ctx) {
+function button(x, y, width, height, text, state, ctx) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -7,14 +7,14 @@ function button(x, y, width, height, text, ctx) {
     this.text = text;
     this.lock = false;
     this.ctx = ctx;
+    this.state = state;
 
     this.draw = function () {
-        this.ctx.fillStyle = this.color;
-        this.ctx.clearRect(this.x, this.y, this.width, this.height);
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
-        this.ctx.fillStyle = 'white';
-        this.ctx.fillText(this.text, this.x + 5, this.y + 35);
-
+            this.ctx.fillStyle = this.color;
+            this.ctx.clearRect(this.x, this.y, this.width, this.height);
+            this.ctx.fillRect(this.x, this.y, this.width, this.height);
+            this.ctx.fillStyle = 'white';
+            this.ctx.fillText(this.text, this.x + 5, this.y + 35);
     }
     
     this.onButton = function (mx, my, click) {
@@ -25,8 +25,10 @@ function button(x, y, width, height, text, ctx) {
                 this.draw();
             } else {
                 if (click)
+                    if (this.state === gState) {
                     console.log(this.text);
                     gameState(inGame);
+                }
             }
         } else {
 	        if(!this.lock){
@@ -40,8 +42,8 @@ function button(x, y, width, height, text, ctx) {
     }
 }
 
-var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', sContext);
-var Q1 = new button(5, 390, 490, 50, 'Q1', context);
-var Q2 = new button(5, 445, 490, 50, 'Q2', context);
-var Q3 = new button(5, 445, 490, 50, 'Q3', eContext);
+var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', start, sContext);
+var Q1 = new button(5, 390, 490, 50, 'Q1', inGame, context);
+var Q2 = new button(5, 445, 490, 50, 'Q2', inGame, context);
+var Q3 = new button(5, 445, 490, 50, 'Q3', end, eContext);
 sButton.draw();
