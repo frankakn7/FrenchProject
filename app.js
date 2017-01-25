@@ -8,6 +8,11 @@ var eCanvas = document.getElementById("endCanvas");
 var eContext = eCanvas.getContext("2d");
 eContext.font = '30px Arial';
 
+var view = {
+    x: 0,
+    y: 0,
+}
+
 var canv = sCanvas;
 
 //game flow

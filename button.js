@@ -11,15 +11,15 @@ function button(x, y, width, height, text, state, ctx) {
 
     this.draw = function () {
             this.ctx.fillStyle = this.color;
-            this.ctx.clearRect(this.x, this.y, this.width, this.height);
-            this.ctx.fillRect(this.x, this.y, this.width, this.height);
+            this.ctx.clearRect(this.x + view.x, this.y + view.y, this.width, this.height);
+            this.ctx.fillRect(this.x + view.x, this.y + view.y, this.width, this.height);
             this.ctx.fillStyle = 'white';
-            this.ctx.fillText(this.text, this.x + 5, this.y + 35);
+            this.ctx.fillText(this.text, this.x + 5 + view.x, this.y + 35 + view.y);
     }
     
     this.onButton = function (mx, my, click) {
-        if (mx >= this.x && mx <= this.x + this.width &&
-			my >= this.y && my <= this.y + this.height && !this.lock) {
+        if (mx >= this.x + view.x && mx <= this.x + this.width + view.x &&
+			my >= this.y + view.y && my <= this.y + this.height + view.y && !this.lock) {
             if (!click) {
                 this.color = 'grey';
                 this.draw();
