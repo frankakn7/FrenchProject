@@ -21,12 +21,7 @@ function listen() {
     });
 }
     function initPack() {
-        if(scene === 1){
-        	sButton.onButton(mouseX, mouseY, click);
-		}else if(scene === 2){
-			Q1.onButton(mouseX, mouseY, click);
-			Q2.onButton(mouseX, mouseY, click);
-		}
+        sButton.onButton(mouseX, mouseY, click);
         click = false;
     }
     listen();
@@ -48,11 +43,9 @@ document.onkeydown = function (event) {
         keys.up = true;
 }
 document.onkeyup = function (event) {
-    if (event.keyCode === 39 && keys.right === true) {
-        console.log(mouseX);
+    if (event.keyCode === 39 && keys.right === true){
         keys.right = false;
-    } else if (event.keyCode === 40 && keys.down === true) {
-        listen();
+    }else if (event.keyCode === 40 && keys.down === true){
         keys.down = false;
     }else if (event.keyCode === 37 && keys.left === true){
         keys.left = false;

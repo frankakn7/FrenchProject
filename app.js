@@ -2,7 +2,24 @@ var canvas = document.getElementById("startCanvas");
 var context = canvas.getContext("2d");
 context.font = '30px Arial';
 
-var scene = 1;
+var scene = {
+	InGame: function(){
+		Q1 = new button(5, 390, 490, 50, 'Q1');
+		Q1.clickFunction = function(){
+			gameState(Ending,"endCanvas");
+		};
+		Q2 = new button(5, 445, 490, 50, 'Q2');
+		Q2.clickFunction = function(){
+			console.log("2");
+		};
+		
+		function initPack(){
+			Q1.onButton(mouseX, mouseY, click);
+			Q2.onButton(mouseX, mouseY, click);
+			click = false;
+		}
+	}
+}
 
 //game flow
 var start = document.getElementById("Start");
@@ -20,10 +37,12 @@ function gameState(state,canv) {
 	context = canvas.getContext("2d");
 	context.font = '30px Arial';
 	
+	scene.;
+	
     listen();
     
     sButton = 0;
     scene = 2;
     
-    
+    //console.log(scene.state);
 }

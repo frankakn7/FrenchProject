@@ -1,6 +1,6 @@
 var Q1, Q2;
 
-function button(x, y, width, height, text, ctx,clickFunction) {
+function button(x, y, width, height, text) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -21,7 +21,7 @@ function button(x, y, width, height, text, ctx,clickFunction) {
 		}
     }
     
-    this.clickFunction = clickFunction;
+    this.clickFunction = 0;
     
     this.onButton = function (mx, my, click) {
         if (mx >= this.x && mx <= this.x + this.width &&
@@ -30,9 +30,10 @@ function button(x, y, width, height, text, ctx,clickFunction) {
                 this.color = 'grey';
                 this.draw();
             } else {
-                if (click)
-                console.log(this.text);
+                if(click){
+                	console.log(this.text);
                     this.clickFunction();
+                }
             }
         } else {
 	        if(!this.lock){
@@ -44,7 +45,8 @@ function button(x, y, width, height, text, ctx,clickFunction) {
         }
     }
 }
-var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start', context, function(){	gameState(inGame,"gameCanvas");
-																													Q1 = new button(5, 390, 490, 50, 'Q1', context,function(){gameState(Ending,"endCanvas")});
-																													Q2 = new button(5, 445, 490, 50, 'Q2', context,function(){console.log("2")});});
+var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
+sButton.clickFunction = function(){	
+	gameState(inGame,"gameCanvas");
+};
 sButton.draw();
