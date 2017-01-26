@@ -11,6 +11,7 @@ eContext.font = '30px Arial';
 var view = {
     x: 0,
     y: 0,
+    lock: false,
 }
 
 var canv = sCanvas;
@@ -30,13 +31,18 @@ function gameState(state) {
     gState = state;
 
     if (state === inGame) {
+        context.clearRect(0, 0, 500, 500);
         canv = canvas;
+        P1.draw();
+        P2.draw();
+        P3.draw();
+
+        Q1.draw();
+        Q2.draw();
     } else if (state === end) {
+        eContext.clearRect(0, 0, 500, 500);
         canv = eCanvas;
         Q3.draw();
     }
     listen();
-
-    context.fillStyle = 'red';
-    context.fillRect(canvas.width / 2 - 125, 10, 250, 450);
 }

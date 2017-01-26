@@ -10,11 +10,11 @@ function button(x, y, width, height, text, state, ctx) {
     this.state = state;
 
     this.draw = function () {
-            this.ctx.fillStyle = this.color;
-            this.ctx.clearRect(this.x + view.x, this.y + view.y, this.width, this.height);
-            this.ctx.fillRect(this.x + view.x, this.y + view.y, this.width, this.height);
-            this.ctx.fillStyle = 'white';
-            this.ctx.fillText(this.text, this.x + 5 + view.x, this.y + 35 + view.y);
+        this.ctx.fillStyle = this.color;
+        this.ctx.clearRect(this.x + view.x, this.y + view.y, this.width, this.height);
+        this.ctx.fillRect(this.x + view.x, this.y + view.y, this.width, this.height);
+        this.ctx.fillStyle = 'white';
+        this.ctx.fillText(this.text, this.x + 5 + view.x, this.y + 35 + view.y);
     }
     
     this.onButton = function (mx, my, click) {
@@ -31,12 +31,16 @@ function button(x, y, width, height, text, state, ctx) {
                 }
             }
         } else {
-	        if(!this.lock){
-            	this.color = 'black';
-				this.draw();
-			}else{
-				this.color = 'grey';
-				this.draw();
+            if (!this.lock) {
+                if (this.color !== 'black') {
+                    this.color = 'black';
+                    this.draw();
+                }
+            } else {
+                if (this.color !== 'grey') {
+                    this.color = 'grey';
+                    this.draw();
+                }
 			}
         }
     }

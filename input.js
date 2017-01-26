@@ -7,12 +7,6 @@ function listen() {
     canv.addEventListener('mousemove', function (evt) {
         mouseX = evt.offsetX;
         mouseY = evt.offsetY;
-        /*
-        if (evt.offsetX) {
-            mouseX = evt.offsetX;
-            mouseY = evt.offsetY;
-        }
-        */
     });
     canv.addEventListener('mousedown', function (evt) {
         if (evt.button === 0) {
@@ -26,14 +20,34 @@ function listen() {
         }
     });
 }
-    function initPack() {
-        sButton.onButton(mouseX, mouseY, click);
-        Q1.onButton(mouseX, mouseY, click);
-        Q2.onButton(mouseX, mouseY, click);
-        Q3.onButton(mouseX, mouseY, click);
-        click = false;
+function initPack() {
+    sButton.onButton(mouseX, mouseY, click);
+    Q1.onButton(mouseX, mouseY, click);
+    Q2.onButton(mouseX, mouseY, click);
+    Q3.onButton(mouseX, mouseY, click);
+    P1.select(mouseX, mouseY, click);
+    P2.select(mouseX, mouseY, click);
+    P3.select(mouseX, mouseY, click);
+    click = false;
+}
+listen();
+
+function moveScreen(dir) {
+    view.lock = true;
+    for (var i = 0; i < 50; i++) {
+        (function (a) {
+            window.setTimeout(function () {
+                view.y += dir;
+                context.clearRect(0, 0, 500, 500);
+                Q1.color = 'grey';
+                Q2.color = 'grey';
+                Q1.draw();
+                Q2.draw();
+            }, a * 10);
+        }(i));
     }
-    listen();
+    view.lock = false;
+}
 //keys
 var keys = {
     up: false,
@@ -57,33 +71,26 @@ document.onkeyup = function (event) {
         gameState(end);
         keys.right = false;
     } else if (event.keyCode === 40 && keys.down === true) {
-        for (var i = 0; i < 50; i++) {
-            (function (a) {
-                window.setTimeout(function () {
-                    view.y += 10;
-                    context.clearRect(0, 0, 500, 500);
-                }, a * 10);
-            }(i));
-        }
+        moveScreen(10);
         keys.down = false;
     } else if (event.keyCode === 37 && keys.left === true) {
         context.clearRect(0, 0, 500, 500);
         keys.left = false;
     } else if (event.keyCode === 38 && keys.up === true) {
-        for (var i = 0; i < 50; i++) {
-            (function (a) {
-                window.setTimeout(function () {
-                    view.y -= 10;
-                    context.clearRect(0, 0, 500, 500);
-                }, a * 10);
-            }(i));
-        }
+        moveScreen(-10);
         keys.up = false;
     }
 }
 
 function update() {
     initPack();
+    if (view.lock) {
+        Q1.lock = true;
+        Q2.lock = true;
+    } else {
+        Q1.lock = false;
+        Q2.lock = false;
+    }
 }
 setInterval(update, 1000 / 30);
 
