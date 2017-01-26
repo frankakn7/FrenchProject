@@ -47,6 +47,6 @@ function button(x, y, width, height, text) {
 }
 var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
 sButton.clickFunction = function(){	
-	gameState(inGame,"gameCanvas");
+	gameState("inGame");
 };
 sButton.draw();

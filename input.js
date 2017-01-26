@@ -20,7 +20,7 @@ function listen() {
         }
     });
 }
-    function initPack() {
+    var initPack = function() {
         sButton.onButton(mouseX, mouseY, click);
         click = false;
     }
