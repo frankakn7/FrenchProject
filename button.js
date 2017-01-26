@@ -47,7 +47,7 @@ function button(x, y, width, height, text, state, ctx) {
 }
 
 var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 100, 50, 'Start', start, sContext);
-var Q1 = new button(5, 390, 490, 50, 'Q1', inGame, context);
-var Q2 = new button(5, 445, 490, 50, 'Q2', inGame, context);
+var Q1 = new button(5, 390 + 450, 490, 50, 'Q1', inGame, context);
+var Q2 = new button(5, 445 + 450, 490, 50, 'Q2', inGame, context);
 var Q3 = new button(5, 445, 490, 50, 'Q3', end, eContext);
 sButton.draw();

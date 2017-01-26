@@ -34,11 +34,14 @@ listen();
 
 function moveScreen(dir) {
     view.lock = true;
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 45; i++) {
         (function (a) {
             window.setTimeout(function () {
                 view.y += dir;
                 context.clearRect(0, 0, 500, 500);
+                P1.draw();
+                P2.draw();
+                P3.draw();
                 Q1.color = 'grey';
                 Q2.color = 'grey';
                 Q1.draw();
@@ -71,13 +74,13 @@ document.onkeyup = function (event) {
         gameState(end);
         keys.right = false;
     } else if (event.keyCode === 40 && keys.down === true) {
-        moveScreen(10);
+        moveScreen(-10);
         keys.down = false;
     } else if (event.keyCode === 37 && keys.left === true) {
         context.clearRect(0, 0, 500, 500);
         keys.left = false;
     } else if (event.keyCode === 38 && keys.up === true) {
-        moveScreen(-10);
+        moveScreen(10);
         keys.up = false;
     }
 }

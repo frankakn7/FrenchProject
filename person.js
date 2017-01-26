@@ -7,15 +7,22 @@ function person(x, y, color) {
     this.lock = false;
 
     this.draw = function () {
-        context.clearRect(this.x, this.y, this.width, this.height);
-        context.fillStyle = this.color;
-        context.fillRect(this.x, this.y, this.width, this.height);
+        if (selected !== this.color) {
+            context.clearRect(this.x + view.x, this.y + view.y, this.width + view.x, this.height + view.y);
+            context.fillStyle = this.color;
+            context.fillRect(this.x + view.x, this.y + view.y, this.width + view.x, this.height + view.y);
+        } else {
+            context.clearRect(this.x, this.y, this.width, this.height);
+            context.fillStyle = this.color;
+            context.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
 
     this.select = function (mx, my, click) {
         if (mx >= this.x + view.x && mx <= this.x + this.width + view.x &&
            my >= this.y + view.y && my <= this.y + this.height + view.y && !this.lock) {
             if (click && gState === inGame) {
+                selected = this.color;
                 console.log(this.color);
             }
         }

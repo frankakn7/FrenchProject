@@ -13,6 +13,7 @@ var view = {
     y: 0,
     lock: false,
 }
+var selected;
 
 var canv = sCanvas;
 
