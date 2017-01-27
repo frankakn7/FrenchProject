@@ -7,10 +7,10 @@ function person(x, y, color) {
     this.lock = false;
 
     this.draw = function () {
-        if (selected !== this.color) {
-            context.clearRect(this.x + view.x, this.y + view.y, this.width + view.x, this.height + view.y);
+        if (selected !== this.color || follow === false) {
+            context.clearRect(this.x + view.x, this.y + view.y, this.width, this.height);
             context.fillStyle = this.color;
-            context.fillRect(this.x + view.x, this.y + view.y, this.width + view.x, this.height + view.y);
+            context.fillRect(this.x + view.x, this.y + view.y, this.width, this.height);
         } else {
             context.clearRect(this.x, this.y, this.width, this.height);
             context.fillStyle = this.color;

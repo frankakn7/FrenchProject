@@ -15,6 +15,7 @@ var view = {
     pos: 1,
 }
 var selected;
+var follow = true;
 
 var canv = sCanvas;
 

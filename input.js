@@ -40,6 +40,7 @@ function moveScreen(dir, axis) {
                 if (axis === 'y') {
                     view.y += dir;
                 } else {
+                    follow = false;
                     view.x += dir;
                 }
                 context.clearRect(0, 0, 500, 500);
@@ -53,6 +54,7 @@ function moveScreen(dir, axis) {
             }, a * 10);
         }(i));
     }
+    follow = true;
     view.lock = false;
 }
 //keys
