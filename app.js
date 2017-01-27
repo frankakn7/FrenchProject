@@ -59,6 +59,20 @@ var scene = {
 		sButton = 0;
 		listen();
 	},
+	evidence: function(){
+		changeCanvas("evidenceCanvas");
+		
+		E1 = new button(20,20,100,100, 'E1');
+		E1.clickFunction = function(){
+			console.log("Height: 170 cm");
+		}
+		
+		initPack = function(){
+			E1.onButton(mouseX,mouseY,click);
+			click = false;
+		}
+		listen();
+	},
 	ending: function(){
 		changeCanvas("endCanvas");
 		
@@ -77,12 +91,14 @@ var scene = {
 var start = document.getElementById("Start");
 var fotoWall = document.getElementById("fotoWall");
 var interrogation = document.getElementById("Interrogation");
+var evidence = document.getElementById("Evidence");
 var ending = document.getElementById("Ending");
 
 function gameState(state) {
 	start.style.display = 'none';
 	fotoWall.style.display = 'none';
     interrogation.style.display = 'none';
+    evidence.style.display = 'none';
     ending.style.display = 'none';
     
 	var stateScene = window[state];
