@@ -35,6 +35,7 @@ var scene = {
 			P1.onButton(mouseX, mouseY, click);
 			P2.onButton(mouseX, mouseY, click);
 			P3.onButton(mouseX, mouseY, click);
+			click = false;
 		}
 		listen();
 	},
@@ -66,6 +67,7 @@ var scene = {
 		
 		initPack = function(){
 			return 0;
+			click = false;
 		}
 		listen();
 	},

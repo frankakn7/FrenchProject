@@ -35,7 +35,11 @@ function button(x, y, width, height, text) {
             } else {
                 if(click){
                 	console.log(this.text);
-                    this.clickFunction();
+                    if(this.clickFunction === 0){
+	                    console.warn("No function assigned to this button");
+                    }else{
+	                    this.clickFunction();
+                    }	
                 }
             }
         } else {
