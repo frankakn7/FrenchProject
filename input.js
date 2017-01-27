@@ -32,12 +32,16 @@ function initPack() {
 }
 listen();
 
-function moveScreen(dir) {
+function moveScreen(dir, axis) {
     view.lock = true;
     for (var i = 0; i < 45; i++) {
         (function (a) {
             window.setTimeout(function () {
-                view.y += dir;
+                if (axis === 'y') {
+                    view.y += dir;
+                } else {
+                    view.x += dir;
+                }
                 context.clearRect(0, 0, 500, 500);
                 P1.draw();
                 P2.draw();
@@ -70,17 +74,34 @@ document.onkeydown = function (event) {
 }
 document.onkeyup = function (event) {
     if (event.keyCode === 39 && keys.right === true) {
-        console.log(mouseX);
-        gameState(end);
+        if (view.pos === 1) {
+            moveScreen(-10, 'x');
+            view.pos = 1.5;
+        } else if (view.pos === 2) {
+            moveScreen(-10, 'x');
+            view.pos = 2.5;
+        }
         keys.right = false;
     } else if (event.keyCode === 40 && keys.down === true) {
-        moveScreen(-10);
+        if (view.pos === 1) {
+            view.pos = 2;
+            moveScreen(-10, 'y');
+        }
         keys.down = false;
     } else if (event.keyCode === 37 && keys.left === true) {
-        context.clearRect(0, 0, 500, 500);
+        if (view.pos === 1.5) {
+            moveScreen(10, 'x');
+            view.pos = 1;
+        } else if (view.pos === 2.5) {
+            moveScreen(10, 'x');
+            view.pos = 2;
+        }
         keys.left = false;
     } else if (event.keyCode === 38 && keys.up === true) {
-        moveScreen(10);
+        if (view.pos === 2) {
+            moveScreen(10, 'y');
+            view.pos = 1;
+        }
         keys.up = false;
     }
 }

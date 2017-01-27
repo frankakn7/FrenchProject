@@ -1,4 +1,4 @@
-function button(x, y, width, height, text, state, ctx) {
+function button(x, y, width, height, text, state, ctx, content) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -8,6 +8,7 @@ function button(x, y, width, height, text, state, ctx) {
     this.lock = false;
     this.ctx = ctx;
     this.state = state;
+    this.content = content;
 
     this.draw = function () {
         this.ctx.fillStyle = this.color;

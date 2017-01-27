@@ -12,6 +12,7 @@ var view = {
     x: 0,
     y: 0,
     lock: false,
+    pos: 1,
 }
 var selected;
 
