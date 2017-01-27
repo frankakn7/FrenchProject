@@ -24,7 +24,6 @@ function listen() {
         sButton.onButton(mouseX, mouseY, click);
         click = false;
     }
-    listen();
 //keys
 var keys = {
     up: false,
@@ -53,6 +52,8 @@ document.onkeyup = function (event) {
         keys.up = false;
     }
 }
+
+gameState("start");
 
 function update() {
     initPack();

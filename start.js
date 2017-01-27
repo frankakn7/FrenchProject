@@ -16,8 +16,11 @@ function button(x, y, width, height, text) {
 	        context.fillStyle = this.color;
 	        context.clearRect(this.x, this.y, this.width, this.height);
 	        context.fillRect(this.x, this.y, this.width, this.height);
-	        context.fillStyle = 'white';
-	        context.fillText(this.text, this.x + 5, this.y + 35);
+	        
+	        if(text != false){
+	        	context.fillStyle = 'white';
+				context.fillText(this.text, this.x + 5, this.y + 35);
+			}
 		}
     }
     
@@ -45,8 +48,3 @@ function button(x, y, width, height, text) {
         }
     }
 }
-var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
-sButton.clickFunction = function(){	
-	gameState("inGame");
-};
-sButton.draw();
