@@ -27,9 +27,9 @@ var scene = {
 	fotoWall: function(){
 		changeCanvas("fotoCanvas");
 		
-		P1 = new button(10, 200, 100, 300, false);
-		P2 = new button(160, 200, 100, 300, false);
-		P3 = new button(310, 200, 100, 300, false);
+		P1 = new button(33, 200, 100, 300, false);
+		P2 = new button(232, 200, 100, 300, false);
+		P3 = new button(367, 200, 100, 300, false);
 		
 		initPack = function(){
 			P1.onButton(mouseX, mouseY, click);
