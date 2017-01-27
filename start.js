@@ -34,7 +34,6 @@ function button(x, y, width, height, text) {
                 this.draw();
             } else {
                 if(click){
-                	console.log(this.text);
                     if(this.clickFunction === 0){
 	                    console.warn("No function assigned to this button");
                     }else{
