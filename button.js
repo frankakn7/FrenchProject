@@ -17,6 +17,8 @@ function button(x, y, width, height, text, state, ctx, content) {
         this.ctx.fillStyle = 'white';
         this.ctx.fillText(this.text, this.x + 5 + view.x, this.y + 35 + view.y);
     }
+
+    this.clickFunction = 0;
     
     this.onButton = function (mx, my, click) {
         if (mx >= this.x + view.x && mx <= this.x + this.width + view.x &&
@@ -25,10 +27,12 @@ function button(x, y, width, height, text, state, ctx, content) {
                 this.color = 'grey';
                 this.draw();
             } else {
-                if (click)
-                    if (this.state === gState) {
-                    console.log(this.text);
-                    gameState(inGame);
+                if (click) {
+                    if (this.clickFunction === 0) {
+                        console.warn("No function assigned to this button");
+                    } else {
+                        this.clickFunction();
+                    }
                 }
             }
         } else {
@@ -51,4 +55,9 @@ var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 10
 var Q1 = new button(5, 390 + 450, 490, 50, 'Q1', inGame, context);
 var Q2 = new button(5, 445 + 450, 490, 50, 'Q2', inGame, context);
 var Q3 = new button(5, 445, 490, 50, 'Q3', end, eContext);
+
+sButton.clickFunction = function () {
+    gameState(inGame);
+}
+
 sButton.draw();
