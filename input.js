@@ -12,11 +12,14 @@ canvas.addEventListener('mousemove', function (evt) {
 });
 canvas.addEventListener('mousedown', function (evt) {
     if (evt.button === 0) {
+	    push = true;
     }
+    
     buttonPack();
 });
 canvas.addEventListener('mouseup', function (evt) {
     if (evt.button === 0) {
+	    push = false;
         click = true;
     }
     buttonPack();

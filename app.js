@@ -18,7 +18,7 @@ var scene = {
 	start: function(){		
 		var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
 		sButton.clickFunction = function(){	
-			gameState("fotoWall");
+			gameState("prolog");
 		};
 		
 		buttonPack = function() {
@@ -26,7 +26,23 @@ var scene = {
         	click = false;
     	}
 	},
-	fotoWall: function(){		
+	prolog: function(){
+		var frame = 0;
+		
+		buttonPack = function(){
+			if(frame >= 6){
+				gameState("fotoWall");
+			}
+			
+			if(	mouseX >= 0 && mouseX <= 0 + canvas.width &&
+				mouseY >= 0 && mouseY <= 0 + canvas.height && push){
+				frame ++;	
+				context.fillStyle = 'black';
+				context.fillRect(0,0,100 * frame,100 * frame);
+			}
+		}	
+	},
+	fotoWall: function(){
 		P1 = new button(33, 200, 100, 300, false);
 		P2 = new button(232, 200, 100, 300, false);
 		P3 = new button(367, 200, 100, 300, false);
