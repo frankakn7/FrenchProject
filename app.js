@@ -1,15 +1,9 @@
-var canvas = document.getElementById("startCanvas");
+var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 context.font = '30px Arial';
 
-function changeCanvas(canv){
-	canvas = document.getElementById(canv);
-	context = canvas.getContext("2d");
-	context.font = '30px Arial';
-	context.clearRect(0,0,canvas.width,canvas.height);
-}
-
 function resetAll(){
+	context.clearRect(0,0,canvas.width,canvas.height);
 	click = false;
 	sButton = 0;
 	P1 = 0;
@@ -22,7 +16,6 @@ function resetAll(){
 
 var scene = {
 	start: function(){
-		changeCanvas("startCanvas");
 		resetAll();
 		
 		var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
@@ -30,14 +23,13 @@ var scene = {
 			gameState("fotoWall");
 		};
 		
-		initPack = function() {
+		buttonPack = function() {
         	sButton.onButton(mouseX, mouseY, click);
         	click = false;
     	}
-    	listen();	
+    	//listen();	
 	},
 	fotoWall: function(){
-		changeCanvas("fotoCanvas");
 		resetAll();
 		
 		P1 = new button(33, 200, 100, 300, false);
@@ -48,17 +40,16 @@ var scene = {
 			gameState("interrogation");
 		}
 		
-		initPack = function(){
+		buttonPack = function(){
 			P1.onButton(mouseX, mouseY, click);
 			P2.onButton(mouseX, mouseY, click);
 			P3.onButton(mouseX, mouseY, click);
 			click = false;
 		}
 		
-		listen();
+		//listen();
 	},
 	interrogation: function(){
-		changeCanvas("gameCanvas");
 		resetAll();
 		
 		Q1 = new button(5, 390, 490, 50, 'Q1');
@@ -70,16 +61,15 @@ var scene = {
 			console.log("2");
 		};
 		
-		initPack = function(){
+		buttonPack = function(){
 			Q1.onButton(mouseX, mouseY, click);
 			Q2.onButton(mouseX, mouseY, click);
 			click = false;
 		}
 		
-		listen();
+		//listen();
 	},
 	evidence: function(){
-		changeCanvas("evidenceCanvas");
 		resetAll();
 		
 		E1 = new button(20,20,100,100, 'E1');
@@ -87,40 +77,23 @@ var scene = {
 			console.log("Height: 170 cm");
 		}
 		
-		initPack = function(){
+		buttonPack = function(){
 			E1.onButton(mouseX,mouseY,click);
 			click = false;
 		}
-		listen();
+		//listen();
 	},
 	ending: function(){
-		changeCanvas("endCanvas");
 		resetAll();
 		
-		initPack = function(){
+		buttonPack = function(){
 			return 0;
 			click = false;
 		}
-		listen();
+		//listen();
 	},
 }
-
-//game flow
-var start = document.getElementById("Start");
-var fotoWall = document.getElementById("fotoWall");
-var interrogation = document.getElementById("Interrogation");
-var evidence = document.getElementById("Evidence");
-var ending = document.getElementById("Ending");
-
 function gameState(state) {
-	start.style.display = 'none';
-	fotoWall.style.display = 'none';
-    interrogation.style.display = 'none';
-    evidence.style.display = 'none';
-    ending.style.display = 'none';
-    
-	var stateScene = window[state];
-    stateScene.style.display = 'inline-block';
-	
 	scene[state]();
+	buttonPack();
 }
