@@ -15,9 +15,7 @@ function resetAll(){
 }
 
 var scene = {
-	start: function(){
-		resetAll();
-		
+	start: function(){		
 		var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
 		sButton.clickFunction = function(){	
 			gameState("fotoWall");
@@ -27,11 +25,8 @@ var scene = {
         	sButton.onButton(mouseX, mouseY, click);
         	click = false;
     	}
-    	//listen();	
 	},
-	fotoWall: function(){
-		resetAll();
-		
+	fotoWall: function(){		
 		P1 = new button(33, 200, 100, 300, false);
 		P2 = new button(232, 200, 100, 300, false);
 		P3 = new button(367, 200, 100, 300, false);
@@ -46,12 +41,8 @@ var scene = {
 			P3.onButton(mouseX, mouseY, click);
 			click = false;
 		}
-		
-		//listen();
 	},
-	interrogation: function(){
-		resetAll();
-		
+	interrogation: function(){		
 		Q1 = new button(5, 390, 490, 50, 'Q1');
 		Q1.clickFunction = function(){
 			gameState("ending");
@@ -66,12 +57,8 @@ var scene = {
 			Q2.onButton(mouseX, mouseY, click);
 			click = false;
 		}
-		
-		//listen();
 	},
-	evidence: function(){
-		resetAll();
-		
+	evidence: function(){		
 		E1 = new button(20,20,100,100, 'E1');
 		E1.clickFunction = function(){
 			console.log("Height: 170 cm");
@@ -81,19 +68,16 @@ var scene = {
 			E1.onButton(mouseX,mouseY,click);
 			click = false;
 		}
-		//listen();
 	},
-	ending: function(){
-		resetAll();
-		
+	ending: function(){		
 		buttonPack = function(){
 			return 0;
 			click = false;
 		}
-		//listen();
 	},
 }
 function gameState(state) {
+	resetAll();
 	scene[state]();
 	buttonPack();
 }
