@@ -50,7 +50,8 @@ var scene = {
 		P3 = new button(575, 200, 100, 300, false);
 		
 		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
-			context.clearRect(0,0,canvas.width,canvas.height);
+			context.clearRect(gButton.x,gButton.y,gButton.width,gButton.height);
+			context.clearRect(iButton.x,iButton.y,iButton.width,iButton.height);
 			gButton = 0;
 			iButton = 0;
 			
