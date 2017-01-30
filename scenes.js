@@ -13,6 +13,8 @@ function resetAll(){
 	iButton = 0;
 	Q1 = 0;
 	Q2 = 0;
+	back = 0;
+	evidence = 0;
 	E1 = 0;
 }
 
@@ -82,20 +84,32 @@ var scene = {
 		}
 	},
 	interrogation: function(){		
-		Q1 = new button(5, 390, canvas.width - 10, 50, 'Q1');
+		Q1 = new button(5, 335, canvas.width - 10, 50, 'Q1');
 		Q1.clickFunction = function(){
 			gameState("interrogation");
 		};
-		Q2 = new button(5, 445, canvas.width - 10, 50, 'Q2');
+		Q2 = new button(5, 390, canvas.width - 10, 50, 'Q2');
 		Q2.clickFunction = function(){
-			console.log("interrogation");
+			gameState("interrogation");
+		};
+		
+		back = new button(5,445, canvas.width / 2 - 5, 50, 'Back');
+		back.clickFunction = function(){
+			gameState("fotoWall");
+		};
+		
+		evidence = new button(canvas.width / 2 + 5,445, canvas.width / 2 - 10, 50, 'Evidence');
+		evidence.clickFunction = function(){
+			gameState("evidence");
 		};
 		
 		buttonPack = function(){
 			Q1.onButton(mouseX, mouseY, click);
 			Q2.onButton(mouseX, mouseY, click);
+			back.onButton(mouseX, mouseY, click);
+			evidence.onButton(mouseX, mouseY, click);
 			click = false;
-		}
+		};
 	},
 	evidence: function(){		
 		E1 = new button(20,20,100,100, 'E1');
@@ -103,8 +117,14 @@ var scene = {
 			console.log("Height: 170 cm");
 		}
 		
+		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Back');
+		evidenceBack.clickFunction = function(){
+			gameState("interrogation");
+		}
+		
 		buttonPack = function(){
 			E1.onButton(mouseX,mouseY,click);
+			evidenceBack.onButton(mouseX,mouseY,click);
 			click = false;
 		}
 	},
