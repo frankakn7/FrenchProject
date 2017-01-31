@@ -1,6 +1,6 @@
 var Q1, Q2;
 
-function button(x, y, width, height, text) {
+function button(x, y, width, height, text, person) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -8,7 +8,8 @@ function button(x, y, width, height, text) {
     this.color = 'black';
     this.text = text;
     this.lock = false;
-
+	this.person = person;
+	
     this.draw = function () {
 	    if(this.lock){
 		    context.clearRect(this.x, this.y, this.width, this.height);

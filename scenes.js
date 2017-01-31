@@ -47,15 +47,16 @@ var scene = {
 		}	
 	},
 	fotoWall: function(){
-		P1 = new button(75, 200, 100, 300, false);
-		P2 = new button(325, 200, 100, 300, false);
-		P3 = new button(575, 200, 100, 300, false);
+		P1 = new button(75, 200, 100, 300, false, person1);
+		P2 = new button(325, 200, 100, 300, false, person2);
+		P3 = new button(575, 200, 100, 300, false, person3);
 		
 		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
 			context.clearRect(gButton.x,gButton.y,gButton.width,gButton.height);
 			context.clearRect(iButton.x,iButton.y,iButton.width,iButton.height);
 			gButton = 0;
 			iButton = 0;
+			var that = this;
 			
 			gButton = new button(this.x + this.width / 2 - 110, this.y - 60, 100,50, "Guilty");
 			gButton.clickFunction = function(){
@@ -63,7 +64,7 @@ var scene = {
 			}
 			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
 			iButton.clickFunction = function(){
-				gameState("interrogation");
+				gameState("interrogation", that.person);
 			}
 			
 			buttonPack = function(){
@@ -83,14 +84,16 @@ var scene = {
 			click = false;
 		}
 	},
-	interrogation: function(){		
+	interrogation: function(p){		
 		Q1 = new button(5, 335, canvas.width - 10, 50, 'Q1');
 		Q1.clickFunction = function(){
-			gameState("interrogation");
+			p.ask(0);
+			gameState("interrogation",p);
 		};
 		Q2 = new button(5, 390, canvas.width - 10, 50, 'Q2');
 		Q2.clickFunction = function(){
-			gameState("interrogation");
+			p.ask(1);
+			gameState("interrogation",p);
 		};
 		
 		back = new button(5,445, canvas.width / 2 - 5, 50, 'Back');
@@ -135,8 +138,8 @@ var scene = {
 		}
 	},
 }
-function gameState(state) {
+function gameState(state,person) {
 	resetAll();
-	scene[state]();
+	scene[state](person);
 	buttonPack();
 }
