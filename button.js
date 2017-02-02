@@ -55,9 +55,18 @@ var sButton = new button((sCanvas.width / 2) - 50, (sCanvas.height / 2) - 25, 10
 var Q1 = new button(5, 390 + 450, 490, 50, 'Q1', inGame, context);
 var Q2 = new button(5, 445 + 450, 490, 50, 'Q2', inGame, context);
 var Q3 = new button(5, 445, 490, 50, 'Q3', end, eContext);
+var interigate = new button(5, 390 , 490, 50, 'Interigate', inGame, context);
+var evidence = new button(5, 445, 490, 50, 'Evidence', inGame, context);
+
+evidence.lock = true;
+interigate.lock = true;
 
 sButton.clickFunction = function () {
     gameState(inGame);
+}
+
+interigate.clickFunction = function () {
+    moveScreen(-10, 'y');
 }
 
 sButton.draw();

@@ -36,6 +36,8 @@ function gameState(state) {
     if (state === inGame) {
         context.clearRect(0, 0, 500, 500);
         canv = canvas;
+        interigate.draw();
+        evidence.draw();
         P1.draw();
         P2.draw();
         P3.draw();

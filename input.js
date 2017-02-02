@@ -44,6 +44,8 @@ function moveScreen(dir, axis) {
                     view.x += dir;
                 }
                 context.clearRect(0, 0, 500, 500);
+                interigate.draw();
+                evidence.draw();
                 P1.draw();
                 P2.draw();
                 P3.draw();
