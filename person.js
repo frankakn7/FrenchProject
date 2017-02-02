@@ -18,6 +18,7 @@ var person1 = new person("no", "maybe", "yes", "lol");
 var person2 = new person("what", "the", "hell", "...");
 var person3 = new person("hey", "how", "are", "you?");
 */
+
 function person(x, y, color) {
     this.x = x;
     this. y = y;
@@ -77,5 +78,3 @@ function person(x, y, color) {
 P1 = new person(13, 10, 'red');
 P2 = new person(175, 10, 'blue');
 P3 = new person(337, 10, 'green');
-
-

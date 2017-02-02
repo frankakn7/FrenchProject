@@ -4,18 +4,20 @@ context.font = '30px Arial';
 
 var activeButtons = [];
 
-function buttonPack(){
-	for(var i = 0; i < activeButtons.length; i++){
+/*
+function buttonPack() {
+	for(var i in activeButtons){
 		activeButtons[i].onButton(mouseX, mouseY, click);
-		console.log(mouseX +" "+mouseY+" "+click);
+		//console.log(mouseX +" "+mouseY+" "+click);
 	}
 	click = false;
 }
+*/
 
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
 	//click = false;
-	sButton = 0;
+	//sButton = 0;
 	gButton = 0;
 	iButton = 0;
 	Q1 = 0;
@@ -24,18 +26,26 @@ function resetAll(){
 	evidence = 0;
 	E1 = 0;
 }
-
+/*
+var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
+activeButtons.push(sButton);
+sButton.clickFunction = function () {
+    console.log("prolog");
+    gameState("prolog");
+};
+*/
 var scene = {
 	start: function(){		
-		var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start'); 
-		sButton.clickFunction = function(){	
-			gameState("prolog");
+	    var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
+	    activeButtons.push(sButton);
+		sButton.clickFunction = function () {
+		    console.log("prolog");
+		    gameState("prolog");
 		};
-		activeButtons.push(sButton);
+		//activeButtons.push(sButton);
 	},
 	prolog: function(){
-		var frame = 0;
-		
+		var frame = 0;	
 /*
 		buttonPack = function(){
 			if(frame >= 6){
@@ -52,6 +62,8 @@ var scene = {
 		}	
 */
 	},
+
+
 	fotoWall: function(){
 				
 	},
@@ -99,9 +111,11 @@ var scene = {
 	ending: function(){		
 		console.log("The End");
 	},
+
 }
-function gameState(state,person) {
-	resetAll();
+function gameState(state, person) {
+	resetAll(); 
 	scene[state](person);
-	buttonPack();
+	//buttonPack();         //do not uncomment!!
+
 }
