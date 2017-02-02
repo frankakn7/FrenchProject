@@ -2,13 +2,20 @@ var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 context.font = '30px Arial';
 
+var activeButtons = [];
+
+function buttonPack(){
+	for(var i = 0; i < activeButtons.length; i++){
+		activeButtons[i].onButton(mouseX, mouseY, click);
+		console.log(mouseX +" "+mouseY+" "+click);
+	}
+	click = false;
+}
+
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
-	click = false;
+	//click = false;
 	sButton = 0;
-	P1 = 0;
-	P2 = 0;
-	P3 = 0;
 	gButton = 0;
 	iButton = 0;
 	Q1 = 0;
@@ -24,73 +31,41 @@ var scene = {
 		sButton.clickFunction = function(){	
 			gameState("prolog");
 		};
-		
-		buttonPack = function() {
-        	sButton.onButton(mouseX, mouseY, click);
-        	click = false;
-    	}
+		activeButtons.push(sButton);
 	},
 	prolog: function(){
 		var frame = 0;
 		
+/*
 		buttonPack = function(){
 			if(frame >= 6){
 				gameState("fotoWall");
 			}
 			
 			if(	mouseX >= 0 && mouseX <= 0 + canvas.width &&
-				mouseY >= 0 && mouseY <= 0 + canvas.height && push){
+				mouseY >= 0 && mouseY <= 0 + canvas.height && click){
 				frame ++;	
 				context.fillStyle = 'black';
 				context.fillRect(0,0,100 * frame,100 * frame);
 			}
+			click = false;
 		}	
+*/
 	},
 	fotoWall: function(){
-		P1 = new button(75, 200, 100, 300, false, person1);
-		P2 = new button(325, 200, 100, 300, false, person2);
-		P3 = new button(575, 200, 100, 300, false, person3);
-		
-		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
-			context.clearRect(gButton.x,gButton.y,gButton.width,gButton.height);
-			context.clearRect(iButton.x,iButton.y,iButton.width,iButton.height);
-			gButton = 0;
-			iButton = 0;
-			var that = this;
-			
-			gButton = new button(this.x + this.width / 2 - 110, this.y - 60, 100,50, "Guilty");
-			gButton.clickFunction = function(){
-				gameState("ending");
-			}
-			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
-			iButton.clickFunction = function(){
-				gameState("interrogation", that.person);
-			}
-			
-			buttonPack = function(){
-				P1.onButton(mouseX, mouseY, click);
-				P2.onButton(mouseX, mouseY, click);
-				P3.onButton(mouseX, mouseY, click);
-				gButton.onButton(mouseX, mouseY, click);
-				iButton.onButton(mouseX, mouseY, click);
-				click = false;
-			}
-		}
-		
-		buttonPack = function(){
-			P1.onButton(mouseX, mouseY, click);
-			P2.onButton(mouseX, mouseY, click);
-			P3.onButton(mouseX, mouseY, click);
-			click = false;
-		}
+				
 	},
-	interrogation: function(p){		
-		Q1 = new button(5, 335, canvas.width - 10, 50, 'Q1');
+	interrogation: function(p){
+		
+		var firstQuestion = questions[p.questions[Math.round(Math.random()* (p.questions.length - 1))]];
+		var secondQuestion =  questions[p.questions[Math.round(Math.random()* (p.questions.length - 1))]];
+				
+		Q1 = new button(5, 335, canvas.width - 10, 50, firstQuestion);
 		Q1.clickFunction = function(){
 			p.ask(0);
 			gameState("interrogation",p);
 		};
-		Q2 = new button(5, 390, canvas.width - 10, 50, 'Q2');
+		Q2 = new button(5, 390, canvas.width - 10, 50, secondQuestion);
 		Q2.clickFunction = function(){
 			p.ask(1);
 			gameState("interrogation",p);
@@ -103,18 +78,12 @@ var scene = {
 		
 		evidence = new button(canvas.width / 2 + 5,445, canvas.width / 2 - 10, 50, 'Evidence');
 		evidence.clickFunction = function(){
-			gameState("evidence");
+			gameState("evidence",p);
 		};
 		
-		buttonPack = function(){
-			Q1.onButton(mouseX, mouseY, click);
-			Q2.onButton(mouseX, mouseY, click);
-			back.onButton(mouseX, mouseY, click);
-			evidence.onButton(mouseX, mouseY, click);
-			click = false;
-		};
+		activeButtons.push(Q1,Q2,back,evidence);
 	},
-	evidence: function(){		
+	evidence: function(p){		
 		E1 = new button(20,20,100,100, 'E1');
 		E1.clickFunction = function(){
 			console.log("Height: 170 cm");
@@ -122,20 +91,13 @@ var scene = {
 		
 		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Back');
 		evidenceBack.clickFunction = function(){
-			gameState("interrogation");
+			gameState("interrogation",p);
 		}
 		
-		buttonPack = function(){
-			E1.onButton(mouseX,mouseY,click);
-			evidenceBack.onButton(mouseX,mouseY,click);
-			click = false;
-		}
+		activeButtons.push(E1,evidenceBack);
 	},
 	ending: function(){		
-		buttonPack = function(){
-			return 0;
-			click = false;
-		}
+		console.log("The End");
 	},
 }
 function gameState(state,person) {

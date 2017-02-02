@@ -1,8 +1,6 @@
 var mouseX, mouseY;
 var click = false;
 
-var buttonPack;
-
 //mouse
 canvas.addEventListener('mousemove', function (evt) {
     mouseX = evt.offsetX;

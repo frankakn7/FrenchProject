@@ -11,17 +11,13 @@ function button(x, y, width, height, text, person) {
 	this.person = person;
 	
     this.draw = function () {
-	    if(this.lock){
-		    context.clearRect(this.x, this.y, this.width, this.height);
-	    }else{
-	        context.fillStyle = this.color;
-	        context.clearRect(this.x, this.y, this.width, this.height);
-	        context.fillRect(this.x, this.y, this.width, this.height);
-	        
-	        if(text != false){
-	        	context.fillStyle = 'white';
-				context.fillText(this.text, this.x + 5, this.y + 35);
-			}
+        context.fillStyle = this.color;
+        context.clearRect(this.x, this.y, this.width, this.height);
+        context.fillRect(this.x, this.y, this.width, this.height);
+        
+        if(text != false){
+        	context.fillStyle = 'white';
+			context.fillText(this.text, this.x + 5, this.y + 35);
 		}
     }
     
