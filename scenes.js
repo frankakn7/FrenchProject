@@ -59,7 +59,7 @@ var scene = {
 			}
 			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
 			iButton.clickFunction = function(){
-				gameState("interrogation", that);
+				gameState("interrogation", that.person);
 			}
 			activeButtons.push(gButton,iButton);
 			click = false;
@@ -70,17 +70,17 @@ var scene = {
 	},
 	interrogation: function(p){
 		
-		var firstQuestion = questions[p.questions[Math.round(Math.random()* (p.questions.length - 1))]];
-		var secondQuestion =  questions[p.questions[Math.round(Math.random()* (p.questions.length - 1))]];
-				
-		Q1 = new button(5, 335, canvas.width - 10, 50, firstQuestion);
+		var firstQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
+		var secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
+						
+		Q1 = new button(5, 335, canvas.width - 10, 50, questions[firstQuestion]);
 		Q1.clickFunction = function(){
-			p.ask(0);
+			p.ask(firstQuestion);
 			gameState("interrogation",p);
 		};
-		Q2 = new button(5, 390, canvas.width - 10, 50, secondQuestion);
+		Q2 = new button(5, 390, canvas.width - 10, 50, questions[secondQuestion]);
 		Q2.clickFunction = function(){
-			p.ask(1);
+			p.ask(secondQuestion);
 			gameState("interrogation",p);
 		};
 		

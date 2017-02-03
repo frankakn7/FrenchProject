@@ -52,12 +52,10 @@ document.onkeyup = function (event) {
         keys.right = false;
     }else if (event.keyCode === 40 && keys.down === true){
         keys.down = false;
-        gameState("evidence");
     }else if (event.keyCode === 37 && keys.left === true){
         keys.left = false;
     }else if (event.keyCode === 38 && keys.up === true){
         keys.up = false;
-        gameState("interrogation")
     }
 }
 
