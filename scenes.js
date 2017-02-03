@@ -72,6 +72,16 @@ var scene = {
 		
 		var firstQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
 		var secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
+		
+		if(firstQuestion === undefined){
+			console.warn("No questions left");
+			gameState("fotoWall");
+			return;
+		}
+		
+		while(secondQuestion === firstQuestion && (p.questions.length - 1) != 0){
+			secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
+		}
 						
 		Q1 = new button(5, 335, canvas.width - 10, 50, questions[firstQuestion]);
 		Q1.clickFunction = function(){
