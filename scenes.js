@@ -4,66 +4,35 @@ context.font = '30px Arial';
 
 var activeButtons = [];
 
-/*
-function buttonPack() {
-	for(var i in activeButtons){
-		activeButtons[i].onButton(mouseX, mouseY, click);
-		//console.log(mouseX +" "+mouseY+" "+click);
-	}
-	click = false;
-}
-*/
-
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
 	//click = false;
-	//sButton = 0;
-	gButton = 0;
-	iButton = 0;
-	Q1 = 0;
-	Q2 = 0;
-	back = 0;
-	evidence = 0;
-	E1 = 0;
+	activeButtons = [];
+
 }
-/*
-var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
-activeButtons.push(sButton);
-sButton.clickFunction = function () {
-    console.log("prolog");
-    gameState("prolog");
-};
-*/
+
 var scene = {
 	start: function(){		
-	    var sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
+	    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
 	    activeButtons.push(sButton);
 		sButton.clickFunction = function () {
-		    console.log("prolog");
 		    gameState("prolog");
 		};
 		//activeButtons.push(sButton);
 	},
 	prolog: function(){
 		var frame = 0;	
-/*
-		buttonPack = function(){
-			if(frame >= 6){
+		
+		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
+		activeButtons.push(prologButton);
+		prologButton.clickFunction = function(){
+			if(frame >= 5){
 				gameState("fotoWall");
+			}else{
+				frame ++;
 			}
-			
-			if(	mouseX >= 0 && mouseX <= 0 + canvas.width &&
-				mouseY >= 0 && mouseY <= 0 + canvas.height && click){
-				frame ++;	
-				context.fillStyle = 'black';
-				context.fillRect(0,0,100 * frame,100 * frame);
-			}
-			click = false;
-		}	
-*/
+		}
 	},
-
-
 	fotoWall: function(){
 				
 	},
@@ -111,12 +80,11 @@ var scene = {
 	ending: function(){		
 		console.log("The End");
 	},
-
 }
 function gameState(state, person) {
 	resetAll(); 
 	scene[state](person);
-	//buttonPack();         //do not uncomment!!
+	buttonPack();         //do not uncomment!!
 
 }
 

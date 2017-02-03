@@ -2,12 +2,9 @@ var mouseX, mouseY;
 var click = false;
 
 function buttonPack() {
-
 	for(var i in activeButtons){
 		activeButtons[i].onButton(mouseX, mouseY, click);
-		//console.log(mouseX +" "+mouseY+" "+click);
 	}
-    //sButton.onButton(mouseX, mouseY, click);
     click = false;
 }
 
@@ -16,21 +13,21 @@ canvas.addEventListener('mousemove', function (evt) {
     mouseX = evt.offsetX;
     mouseY = evt.offsetY;
     
-    //buttonPack();
+    buttonPack();
 });
 canvas.addEventListener('mousedown', function (evt) {
     if (evt.button === 0) {
 	    push = true;
     }
     
-    //buttonPack();
+    buttonPack();
 });
 canvas.addEventListener('mouseup', function (evt) {
     if (evt.button === 0) {
 	    push = false;
         click = true;
     }
-    //buttonPack();
+    buttonPack();
 });
 
 //keys
@@ -65,5 +62,3 @@ document.onkeyup = function (event) {
 }
 
 gameState("start");
-
-setInterval(buttonPack, 1000 / 25);
