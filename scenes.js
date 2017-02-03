@@ -33,6 +33,39 @@ var scene = {
 		activeButtons.push(prologButton);
 	},
 	fotoWall: function(){
+		gButton = 0;
+		iButton = 0;
+		
+		P1 = new button(75, 200, 100, 300, false, person1);
+		P2 = new button(325, 200, 100, 300, false, person2);
+		P3 = new button(575, 200, 100, 300, false, person3);
+		
+		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
+			if(gButton != 0 && iButton != 0){	
+				context.clearRect(gButton.x,gButton.y,gButton.width,gButton.height);
+				context.clearRect(iButton.x,iButton.y,iButton.width,iButton.height);
+			
+				var index = activeButtons.indexOf(gButton);
+				activeButtons.splice(index,1);
+				index = activeButtons.indexOf(iButton);
+				activeButtons.splice(index,1);
+			}
+	
+			var that = this;
+			
+			gButton = new button(this.x + this.width / 2 - 110, this.y - 60, 100,50, "Guilty");
+			gButton.clickFunction = function(){
+				gameState("ending");
+			}
+			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
+			iButton.clickFunction = function(){
+				gameState("interrogation", that);
+			}
+			activeButtons.push(gButton,iButton);
+			click = false;
+			buttonPack();
+		}
+		
 		activeButtons.push(P1,P2,P3);		
 	},
 	interrogation: function(p){
