@@ -26,10 +26,10 @@ function button(x, y, width, height, text, person) {
     this.onButton = function (mx, my, click) {
         if (mx >= this.x && mx <= this.x + this.width &&
 			my >= this.y && my <= this.y + this.height && !this.lock) {
-            if (!click) {
+            if(!click){
                 this.color = 'grey';
                 this.draw();
-            } else {
+            }else{
                 if(click){
                     if(this.clickFunction === 0){
 	                    console.warn("No function assigned to this button");
@@ -38,7 +38,7 @@ function button(x, y, width, height, text, person) {
                     }	
                 }
             }
-        } else {
+        }else{
 	        if(!this.lock){
             	this.color = 'black';
 				this.draw();

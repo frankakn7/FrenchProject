@@ -6,7 +6,7 @@ var activeButtons = [];
 
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
-	//click = false;
+	click = false;
 	activeButtons = [];
 
 }
@@ -14,17 +14,15 @@ function resetAll(){
 var scene = {
 	start: function(){		
 	    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
-	    activeButtons.push(sButton);
 		sButton.clickFunction = function () {
 		    gameState("prolog");
 		};
-		//activeButtons.push(sButton);
+		activeButtons.push(sButton);
 	},
 	prolog: function(){
 		var frame = 0;	
 		
 		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
-		activeButtons.push(prologButton);
 		prologButton.clickFunction = function(){
 			if(frame >= 5){
 				gameState("fotoWall");
@@ -32,9 +30,10 @@ var scene = {
 				frame ++;
 			}
 		}
+		activeButtons.push(prologButton);
 	},
 	fotoWall: function(){
-				
+		activeButtons.push(P1,P2,P3);		
 	},
 	interrogation: function(p){
 		
