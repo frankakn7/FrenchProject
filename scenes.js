@@ -83,12 +83,12 @@ var scene = {
 			Q1 = new button(5, 335, canvas.width - 10, 50, questions[firstQuestion]);
 			Q1.clickFunction = function(){
 				p.ask(firstQuestion);
-				gameState("interrogation",p);
+				//gameState("interrogation",p);
 			};
 			Q2 = new button(5, 390, canvas.width - 10, 50, questions[secondQuestion]);
 			Q2.clickFunction = function(){
 				p.ask(secondQuestion);
-				gameState("interrogation",p);
+				//gameState("interrogation",p);
 			};
 			activeButtons.push(Q1,Q2)
 		}

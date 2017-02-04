@@ -1,8 +1,10 @@
 var questions = ["who are you ?", "where are you ?", "when are you ?", "why are you ?", "what are you ?"];
+var audioQuestion = new Audio('Question.m4a');
 
 function person(){
 	this.questions = [];
 	this.answer = [];
+	var that = this;
 	
 	for(var i = 0; i < questions.length; i++){
 		this.questions.push(i);
@@ -13,29 +15,39 @@ function person(){
 	}
 	
 	this.ask = function(question){
-		console.log(this.answer[question]);
 		var index = this.questions.indexOf(question);
 		this.questions.splice(index,1);
+		
+		resetAll();
+		
+		audioQuestion.play();
+		audioQuestion.onended = function(){
+			that.answer[question].play();
+			that.answer[question].onended = function(){
+				gameState("interrogation", that);
+			}
+		}
+		
 	}
 }
 
 var person1 = new person();
-person1.addAnswer("no");
-person1.addAnswer("maybe");
-person1.addAnswer("yes");
-person1.addAnswer("lol");
-person1.addAnswer("who ?");
+person1.addAnswer(new Audio('Answer.m4a'));
+person1.addAnswer(new Audio('Answer.m4a'));
+person1.addAnswer(new Audio('Answer.m4a'));
+person1.addAnswer(new Audio('Answer.m4a'));
+person1.addAnswer(new Audio('Answer.m4a'));
 
 var person2 = new person();
-person2.addAnswer("what");
-person2.addAnswer("the");
-person2.addAnswer("hell");
-person2.addAnswer("...");
-person2.addAnswer("is");
+person2.addAnswer(new Audio('Answer.m4a'));
+person2.addAnswer(new Audio('Answer.m4a'));
+person2.addAnswer(new Audio('Answer.m4a'));
+person2.addAnswer(new Audio('Answer.m4a'));
+person2.addAnswer(new Audio('Answer.m4a'));
 
 var person3 = new person();
-person3.addAnswer("hey");
-person3.addAnswer("how");
-person3.addAnswer("are");
-person3.addAnswer("you");
-person3.addAnswer("?");
+person3.addAnswer(new Audio('Answer.m4a'));
+person3.addAnswer(new Audio('Answer.m4a'));
+person3.addAnswer(new Audio('Answer.m4a'));
+person3.addAnswer(new Audio('Answer.m4a'));
+person3.addAnswer(new Audio('Answer.m4a'));
