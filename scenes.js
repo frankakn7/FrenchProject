@@ -36,9 +36,9 @@ var scene = {
 		gButton = 0;
 		iButton = 0;
 		
-		P1 = new button(75, 200, 100, 300, false, person1);
-		P2 = new button(325, 200, 100, 300, false, person2);
-		P3 = new button(575, 200, 100, 300, false, person3);
+		P1 = new button(75, 200, 100, 300, false, drunkGuy);
+		P2 = new button(325, 200, 100, 300, false, blackJanitor);
+		P3 = new button(575, 200, 100, 300, false, frenchGuy);
 		
 		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
 			if(gButton != 0 && iButton != 0){	
