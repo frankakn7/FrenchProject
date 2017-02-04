@@ -75,24 +75,23 @@ var scene = {
 		
 		if(firstQuestion === undefined){
 			console.warn("No questions left");
-			gameState("fotoWall");
-			return;
+		}else{
+			while(secondQuestion === firstQuestion && (p.questions.length - 1) != 0){
+				secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
+			}
+							
+			Q1 = new button(5, 335, canvas.width - 10, 50, questions[firstQuestion]);
+			Q1.clickFunction = function(){
+				p.ask(firstQuestion);
+				gameState("interrogation",p);
+			};
+			Q2 = new button(5, 390, canvas.width - 10, 50, questions[secondQuestion]);
+			Q2.clickFunction = function(){
+				p.ask(secondQuestion);
+				gameState("interrogation",p);
+			};
+			activeButtons.push(Q1,Q2)
 		}
-		
-		while(secondQuestion === firstQuestion && (p.questions.length - 1) != 0){
-			secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
-		}
-						
-		Q1 = new button(5, 335, canvas.width - 10, 50, questions[firstQuestion]);
-		Q1.clickFunction = function(){
-			p.ask(firstQuestion);
-			gameState("interrogation",p);
-		};
-		Q2 = new button(5, 390, canvas.width - 10, 50, questions[secondQuestion]);
-		Q2.clickFunction = function(){
-			p.ask(secondQuestion);
-			gameState("interrogation",p);
-		};
 		
 		back = new button(5,445, canvas.width / 2 - 5, 50, 'Back');
 		back.clickFunction = function(){
@@ -104,7 +103,7 @@ var scene = {
 			gameState("evidence",p);
 		};
 		
-		activeButtons.push(Q1,Q2,back,evidence);
+		activeButtons.push(back,evidence);
 	},
 	evidence: function(p){		
 		E1 = new button(20,20,100,100, 'E1');
