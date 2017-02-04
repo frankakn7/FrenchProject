@@ -29,10 +29,13 @@ function person(){
 		
 		resetAll();
 		
+		console.log("Q: "+questions[question]);
+		console.log("A: "+this.textAnswer[question]);
+		
 		audioQuestion.play();
 		audioQuestion.onended = function(){
-			that.answer[question].play();
-			that.answer[question].onended = function(){
+			that.audioAnswer[question].play();
+			that.audioAnswer[question].onended = function(){
 				gameState("interrogation", that);
 			}
 		}
