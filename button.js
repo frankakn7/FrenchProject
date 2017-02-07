@@ -1,6 +1,8 @@
 var Q1, Q2;
 
-function button(x, y, width, height, text, person) {
+function button(x, y, width, height, text, person, img) {
+    this.img = img;
+    
     this.x = x;
     this.y = y;
     this.width = width;
@@ -11,13 +13,19 @@ function button(x, y, width, height, text, person) {
 	this.person = person;
 	
     this.draw = function () {
-        context.fillStyle = this.color;
-        context.clearRect(this.x, this.y, this.width, this.height);
-        context.fillRect(this.x, this.y, this.width, this.height);
-        
-        if(text != false){
-        	context.fillStyle = 'white';
-			context.fillText(this.text, this.x + 5, this.y + 35);
+	    if(img != undefined){
+	        context.fillStyle = this.color;
+	        context.clearRect(this.x, this.y, this.width, this.height);
+	        context.drawImage(this.img, 0, 0, this.img.width, this.img.height, this.x, this.y, this.width, this.height);
+		}else{
+			context.fillStyle = this.color;
+	        context.clearRect(this.x, this.y, this.width, this.height);
+	        context.fillRect(this.x, this.y, this.width, this.height);
+			
+			if(text != false){
+	        	context.fillStyle = 'white';
+				context.fillText(this.text, this.x + 5, this.y + 35);
+			}
 		}
     }
     

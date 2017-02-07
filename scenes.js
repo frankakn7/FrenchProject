@@ -1,6 +1,3 @@
-var canvas = document.getElementById("gameCanvas");
-var context = canvas.getContext("2d");
-context.font = '30px Arial';
 
 var activeButtons = [];
 
@@ -12,19 +9,23 @@ function resetAll(){
 }
 
 var scene = {
-	start: function(){		
-	    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, 'Start');
-		sButton.clickFunction = function () {
-		    gameState("prolog");
-		};
-		activeButtons.push(sButton);
+	start: function(){
+		image.background.start.onload = function () {
+			context.drawImage(image.background.start, 0, 0, image.background.start.width, image.background.start.height, 0, 0, canvas.width, canvas.height);
+					
+		    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' Start');
+			sButton.clickFunction = function () {
+			    gameState("prolog");
+			};
+			activeButtons.push(sButton);
+		}
 	},
 	prolog: function(){
-		var frame = 0;	
+		var frame = 1;	
 		
 		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
 		prologButton.clickFunction = function(){
-			if(frame >= 5){
+			if(frame === 4){
 				gameState("fotoWall");
 			}else{
 				frame ++;
@@ -36,9 +37,9 @@ var scene = {
 		gButton = 0;
 		iButton = 0;
 		
-		P1 = new button(75, 200, 100, 300, false, drunkGuy);
+		P1 = new button(10, 130, 250, 400, false, drunkGuy, image.captain);
 		P2 = new button(325, 200, 100, 300, false, blackJanitor);
-		P3 = new button(575, 200, 100, 300, false, frenchGuy);
+		P3 = new button(575, 200, 125, 300, false, frenchGuy, image.franzose);
 		
 		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
 			if(gButton != 0 && iButton != 0){	
