@@ -2,7 +2,7 @@ var activeButtons = [];
 
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
-	//click = false;
+	click = false;
 	activeButtons = [];
 
 }
@@ -11,14 +11,13 @@ var scene = {
 	start: function(){
 		image.background.start.onload = function () {
 			context.drawImage(image.background.start, 0, 0, image.background.start.width, image.background.start.height, 0, 0, canvas.width, canvas.height);
-			//context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
-            
-		    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' Start');
-			sButton.clickFunction = function () {
-			    gameState("prolog");
-			};
-			activeButtons.push(sButton);
+			buttonPack();
 		}
+		sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' Jouer');
+		sButton.clickFunction = function () {
+		    gameState("prolog");
+		};
+		activeButtons.push(sButton);
 	},
 	prolog: function(){
 	    var frame = 1;
@@ -41,9 +40,13 @@ var scene = {
 		gButton = 0;
 		iButton = 0;
 		
-		P1 = new button(10, 130, 250, 400, false, drunkGuy, image.captain);
-		P2 = new button(325, 200, 100, 300, false, blackJanitor);
-		P3 = new button(575, 200, 125, 300, false, frenchGuy, image.franzose);
+		canvas.style.backgroundImage = "url("+image.background.fotoWall.src+")";
+		
+		//context.drawImage(image.background.fotoWall, 0, 0, image.background.fotoWall.width, image.background.fotoWall.height, 0, 0, canvas.width, canvas.height)
+		
+		P1 = new button(40, 130, 250, 400, false, drunkGuy, image.captain);
+		P2 = new button(325, 200, 150, 300, false, blackJanitor, image.janitor);
+		P3 = new button(525, 230, 125, 300, false, frenchGuy, image.franzose);
 		
 		P1.clickFunction = P2.clickFunction = P3.clickFunction = function(){
 			if(gButton != 0 && iButton != 0){	
@@ -58,11 +61,11 @@ var scene = {
 	
 			var that = this;
 			
-			gButton = new button(this.x + this.width / 2 - 110, this.y - 60, 100,50, "Guilty");
+			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "coupable");
 			gButton.clickFunction = function(){
 				gameState("ending");
 			}
-			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
+			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 150,50, "interroger");
 			iButton.clickFunction = function(){
 				gameState("interrogation", that.person);
 			}
@@ -74,6 +77,10 @@ var scene = {
 		activeButtons.push(P1,P2,P3);		
 	},
 	interrogation: function(p){
+		
+		console.log(p.id);
+		console.log(image.background[p.id]);
+		canvas.style.backgroundImage = "url("+image.background[p.id]+")";
 		
 		var firstQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
 		var secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];

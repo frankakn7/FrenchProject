@@ -11,10 +11,35 @@ image.background.start.src = "Images/Start.png";
 image.background.start.width = 2908;
 image.background.start.height = 1875;
 
+image.background.fotoWall = new Image();
+image.background.fotoWall.src = "Images/FotoWallBackground.png";
+image.background.fotoWall.width = 1028;
+image.background.fotoWall.height = 632;
+
+image.background.drunkGuy = new Image();
+image.background.drunkGuy.src = "";
+image.background.drunkGuy.width = 0;
+image.background.drunkGuy.height = 0;
+
+image.background.blackJanitor = new Image();
+image.background.blackJanitor.src = "";
+image.background.blackJanitor.width = 0;
+image.background.blackJanitor.height = 0;
+
+image.background.frenchGuy = new Image();
+image.background.frenchGuy.src = "";
+image.background.frenchGuy.width = 0;
+image.background.frenchGuy.height = 0;
+
 image.captain = new Image();
 image.captain.src = "Images/Captain.png";
 image.captain.width = 1000;
 image.captain.height = 1700;
+
+image.janitor = new Image();
+image.janitor.src = "Images/Janitor.png";
+image.janitor.width = 500;
+image.janitor.height = 985;
 
 image.franzose = new Image();
 image.franzose.src = "Images/Franzose.png"
