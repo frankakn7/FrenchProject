@@ -46,6 +46,21 @@ image.franzose.src = "Images/Franzose.png"
 image.franzose.width = 400;
 image.franzose.height = 1056;
 
+image.text1 = new Image();
+image.text1.src = "Images/Cutscene_Text1.png"
+image.text1.width = 750;
+image.text1.height = 500;
+
+image.text2 = new Image();
+image.text2.src = "Images/Cutscene_Text2.png"
+image.text2.width = 750;
+image.text2.height = 500;
+
+image.text3 = new Image();
+image.text3.src = "Images/Cutscene_Text3.png"
+image.text3.width = 750;
+image.text3.height = 500;
+
 image.louvre = new Image();
 image.louvre.src = "Images/louvre.png"
 image.louvre.width = 430;

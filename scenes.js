@@ -21,14 +21,23 @@ var scene = {
 	},
 	prolog: function(){
 	    var frame = 1;
-	    context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
+	    context.drawImage(image.text1, 0, 0, image.text1.width, image.text1.height, 0, 0, canvas.width, canvas.height);
 		
 		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
 		prologButton.clickFunction = function () {
 		    if (frame === 1) {
+		        context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
+		    }
+		    if(frame === 2){
 		        context.drawImage(image.frame, 0, 0, image.frame.width, image.frame.height, 0, 0, canvas.width, canvas.height);
 		    }
-			if(frame === 2){
+		    if(frame === 3){
+		        context.drawImage(image.text2, 0, 0, image.text2.width, image.text2.height, 0, 0, canvas.width, canvas.height);
+		    }
+		    if(frame === 4){
+		        context.drawImage(image.text3, 0, 0, image.text3.width, image.text3.height, 0, 0, canvas.width, canvas.height);
+		    }
+			if(frame === 5){
 				gameState("fotoWall");
 			} else {
 			    frame++;
