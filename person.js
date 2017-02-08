@@ -8,9 +8,10 @@ var questions =["was hast du am samstag um 23:00 Uhr gemacht ?",
 
 var audioQuestion = new Audio('Question.m4a');
 
-function person(name, age, job, family, gender, bType, height, weight, birthday, hospital, guilty){
+function person(id, name, age, job, family, gender, bType, height, weight, birthday, hospital, guilty){
 	var that = this;
 	
+	this.id = id;
 	this.name = name;
 	this.age = age;
 	this.job = job;
@@ -60,8 +61,9 @@ function person(name, age, job, family, gender, bType, height, weight, birthday,
 	}
 }
 
-var drunkGuy = new person( "noname", 
-						   51, 
+var drunkGuy = new person( "drunkGuy", 
+						   "noname", 
+						   51,
 						   "None", 
 						   "None", 
 						   "Male", 
@@ -73,7 +75,7 @@ var drunkGuy = new person( "noname",
 						   false);
 
 
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Ich war auf dem heimweg vom restaurant");
+drunkGuy.addAnswer(new Audio('Answer.m4a'),"J'étais sur le chemin au restaurant");
 drunkGuy.addAnswer(new Audio('Answer.m4a'),"Keine Ahnung");
 drunkGuy.addAnswer(new Audio('Answer.m4a'),"Diesmal bin ich nicht betrunken auto gefahren");
 drunkGuy.addAnswer(new Audio('Answer.m4a'),"Ich weiss nichts sie muessen mir glauben");
@@ -81,7 +83,8 @@ drunkGuy.addAnswer(new Audio('Answer.m4a'),"Ich bin arbeitslos");
 drunkGuy.addAnswer(new Audio('Answer.m4a'),"Nein");
 drunkGuy.addAnswer(new Audio('Answer.m4a'),"Nein ... meine Frau hat mich verlassen und ich bin arbeitslos");
 
-var blackJanitor = new person( "noname", 
+var blackJanitor = new person( "blackJanitor", 
+							   "noname",
 							   28, 
 							   "Janitor (louvre, 75001 Paris)", 
 							   "Girfriend (pregnant) + 1 Boy", 
@@ -101,7 +104,8 @@ blackJanitor.addAnswer(new Audio('Answer.m4a'),"Ich bin eine putzkraft im luvre"
 blackJanitor.addAnswer(new Audio('Answer.m4a'),"Eine freundin und Kinder aus einer früheren beziehung");
 blackJanitor.addAnswer(new Audio('Answer.m4a'),"EIgentlich schon ... ich hätte nur gerne eine beförderung");
 
-var frenchGuy = new person( "Francois Martinez", 
+var frenchGuy = new person( "frenchGuy", 
+							"Francois Martinez",
 							38, 
 							"Owner Boulangerie", 
 							"Wife (Luise Martinez)", 
