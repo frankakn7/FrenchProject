@@ -2,8 +2,8 @@ var mouseX, mouseY;
 var click = false;
 
 function buttonPack() {
-	for(var i in activeButtons){
-		activeButtons[i].onButton(mouseX, mouseY, click);
+    for (var i in activeButtons) {
+		    activeButtons[i].onButton(mouseX, mouseY, click);
 	}
     click = false;
 }

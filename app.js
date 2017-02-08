@@ -20,3 +20,13 @@ image.franzose = new Image();
 image.franzose.src = "Images/Franzose.png"
 image.franzose.width = 400;
 image.franzose.height = 1056;
+
+image.louvre = new Image();
+image.louvre.src = "Images/louvre.png"
+image.louvre.width = 430;
+image.louvre.height = 288;
+
+image.frame = new Image();
+image.frame.src = "Images/frame.png"
+image.frame.width = 600;
+image.frame.height = 462;

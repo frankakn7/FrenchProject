@@ -1,9 +1,8 @@
-
 var activeButtons = [];
 
 function resetAll(){
 	context.clearRect(0,0,canvas.width,canvas.height);
-	click = false;
+	//click = false;
 	activeButtons = [];
 
 }
@@ -12,7 +11,8 @@ var scene = {
 	start: function(){
 		image.background.start.onload = function () {
 			context.drawImage(image.background.start, 0, 0, image.background.start.width, image.background.start.height, 0, 0, canvas.width, canvas.height);
-					
+			//context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
+            
 		    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' Start');
 			sButton.clickFunction = function () {
 			    gameState("prolog");
@@ -21,14 +21,18 @@ var scene = {
 		}
 	},
 	prolog: function(){
-		var frame = 1;	
+	    var frame = 1;
+	    context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
 		
 		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
-		prologButton.clickFunction = function(){
-			if(frame === 4){
+		prologButton.clickFunction = function () {
+		    if (frame === 1) {
+		        context.drawImage(image.frame, 0, 0, image.frame.width, image.frame.height, 0, 0, canvas.width, canvas.height);
+		    }
+			if(frame === 2){
 				gameState("fotoWall");
-			}else{
-				frame ++;
+			} else {
+			    frame++;
 			}
 		}
 		activeButtons.push(prologButton);
