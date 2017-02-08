@@ -11,9 +11,8 @@ var scene = {
 	start: function(){
 		image.background.start.onload = function () {
 			context.drawImage(image.background.start, 0, 0, image.background.start.width, image.background.start.height, 0, 0, canvas.width, canvas.height);
-			//context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
-            
-		    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' Start');
+					
+		    sButton = new button((canvas.width / 2) - 50, (canvas.height / 2) - 25, 100, 50, ' jouer');
 			sButton.clickFunction = function () {
 			    gameState("prolog");
 			};
@@ -62,7 +61,7 @@ var scene = {
 			gButton.clickFunction = function(){
 				gameState("ending");
 			}
-			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "inter");
+			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 100,50, "interroger");
 			iButton.clickFunction = function(){
 				gameState("interrogation", that.person);
 			}
