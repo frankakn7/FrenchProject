@@ -17,19 +17,19 @@ image.background.fotoWall.width = 1028;
 image.background.fotoWall.height = 632;
 
 image.background.drunkGuy = new Image();
-image.background.drunkGuy.src = "";
-image.background.drunkGuy.width = 0;
-image.background.drunkGuy.height = 0;
+image.background.drunkGuy.src = "Images/inter_drunk.png";
+image.background.drunkGuy.width = 2000;
+image.background.drunkGuy.height = 1500;
 
 image.background.blackJanitor = new Image();
-image.background.blackJanitor.src = "";
-image.background.blackJanitor.width = 0;
-image.background.blackJanitor.height = 0;
+image.background.blackJanitor.src = "Images/inter_janitor.png";
+image.background.blackJanitor.width =2000;
+image.background.blackJanitor.height = 1500;
 
 image.background.frenchGuy = new Image();
-image.background.frenchGuy.src = "";
-image.background.frenchGuy.width = 0;
-image.background.frenchGuy.height = 0;
+image.background.frenchGuy.src = "Images/inter_french.png";
+image.background.frenchGuy.width = 2000;
+image.background.frenchGuy.height = 1500;
 
 image.captain = new Image();
 image.captain.src = "Images/Captain.png";

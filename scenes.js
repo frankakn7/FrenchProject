@@ -80,7 +80,7 @@ var scene = {
 		
 		console.log(p.id);
 		console.log(image.background[p.id]);
-		canvas.style.backgroundImage = "url("+image.background[p.id]+")";
+		canvas.style.backgroundImage = "url("+image.background[p.id].src+")";
 		
 		var firstQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
 		var secondQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
