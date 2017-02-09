@@ -105,13 +105,13 @@ var blackJanitor = new person( "blackJanitor",
 							   "Hôpital Americain de Paris",
 							   false);
 
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Ich habe im luvre gearbeitet");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Heute habe ich dort gearbeitet");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Ich habe nichts falsch gemacht");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Alles schien ganz normal");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Ich bin eine putzkraft im luvre");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Eine freundin und Kinder aus einer früheren beziehung");
-blackJanitor.addAnswer(new Audio('Code/Audio/Answer.m4a'), "EIgentlich schon ... ich hätte nur gerne eine beförderung");
+blackJanitor.addAnswer(new Audio('Code/Audio/what they did saterday.mp3'), "Ich habe im luvre gearbeitet");
+blackJanitor.addAnswer(new Audio('Code/Audio/last time at louvre.mp3'), "Heute habe ich dort gearbeitet");
+blackJanitor.addAnswer(new Audio('Code/Audio/why they are there.mp3'), "Ich habe nichts falsch gemacht");
+blackJanitor.addAnswer(new Audio('Code/Audio/what they notised.mp3'), "Alles schien ganz normal");
+blackJanitor.addAnswer(new Audio('Code/Audio/work.mp3'), "Ich bin eine putzkraft im luvre");
+blackJanitor.addAnswer(new Audio('Code/Audio/family.mp3'), "Eine freundin und Kinder aus einer früheren beziehung");
+blackJanitor.addAnswer(new Audio('Code/Audio/happy with life.mp3'), "EIgentlich schon ... ich hätte nur gerne eine beförderung");
 
 var frenchGuy = new person( "frenchGuy", 
 							"Francois Martinez",
