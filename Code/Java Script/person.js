@@ -8,12 +8,12 @@ var questions =["Qu'avez-vous fait le samedi ?",
 
 var audioQuestion = {};
 audioQuestion[29] = new Audio('Code/Audio/p4_q1.wav');    //was hast du am samstag um 23:00 Uhr gemacht ?
-audioQuestion[60] = new Audio('Code/Audio/p4_q2.wav');    //wann waren sie das letzte mal im luvre ?
-audioQuestion[36] = new Audio('Code/Audio/p4_q3.wav');    //wissen sie warum sie hier sind ?
+audioQuestion[59] = new Audio('Code/Audio/p4_q2.wav');    //wann waren sie das letzte mal im luvre ?
+audioQuestion[35] = new Audio('Code/Audio/p4_q3.wav');    //wissen sie warum sie hier sind ?
 audioQuestion[50] = new Audio('Code/Audio/p4_q4.wav');    //haben sie irgendwas gesehen ?
 audioQuestion[31] = new Audio('Code/Audio/p4_q5.wav');    //wo arbeiten sie ?
 audioQuestion[25] = new Audio('Code/Audio/p4_q6.wav');    //haben sie Familie ?
-audioQuestion[35] = new Audio('Code/Audio/p4_q7.wav');    //sind sie mit ihrem leben zufrieden ?
+audioQuestion[34] = new Audio('Code/Audio/p4_q7.wav');    //sind sie mit ihrem leben zufrieden ?
 
 //new Audio('Code/Audio/Question.m4a');
 
