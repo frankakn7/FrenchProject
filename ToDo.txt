@@ -1,14 +1,1 @@
-To Do:
-	-Buttons
-		-easy adding of buttons
-	-scenes
-		-start
-		-prolog
-		-game
-			-photo wall
-			-interrogation
-			-evidence
-		-ending
-	-sprite Animation
-		-speaking
-		-photo wall movement
+Öffnen sie die auf der CD mit enthaltene HTML Datei
