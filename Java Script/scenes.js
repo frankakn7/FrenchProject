@@ -70,11 +70,11 @@ var scene = {
 	
 			var that = this;
 			
-			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "coupable");
+			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "Coupable");
 			gButton.clickFunction = function(){
 				gameState("ending",that.person);
 			}
-			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 150,50, "interroger");
+			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 150,50, "Interroger");
 			iButton.clickFunction = function(){
 				gameState("interrogation", that.person);
 			}

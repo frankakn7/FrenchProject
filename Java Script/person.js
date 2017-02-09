@@ -6,7 +6,7 @@ var questions =["was hast du am samstag um 23:00 Uhr gemacht ?",
 				"haben sie Familie ?",
 				"sind sie mit ihrem leben zufrieden ?"];
 
-var audioQuestion = new Audio('Question.m4a');
+var audioQuestion = new Audio('Audio/Question.m4a');
 
 function person(id, name, age, job, family, gender, bType, height, weight, birthday, hospital, guilty){
 	var that = this;
@@ -75,13 +75,13 @@ var drunkGuy = new person( "drunkGuy",
 						   false);
 
 
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"J'étais sur le chemin au restaurant");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Keine Ahnung");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Diesmal bin ich nicht betrunken auto gefahren");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Ich weiss nichts sie muessen mir glauben");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Ich bin arbeitslos");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Nein");
-drunkGuy.addAnswer(new Audio('Answer.m4a'),"Nein ... meine Frau hat mich verlassen und ich bin arbeitslos");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'),"J'étais sur le chemin au restaurant");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Keine Ahnung");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Diesmal bin ich nicht betrunken auto gefahren");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Ich weiss nichts sie muessen mir glauben");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Ich bin arbeitslos");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Nein");
+drunkGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Nein ... meine Frau hat mich verlassen und ich bin arbeitslos");
 
 var blackJanitor = new person( "blackJanitor", 
 							   "noname",
@@ -96,13 +96,13 @@ var blackJanitor = new person( "blackJanitor",
 							   "Hôpital Americain de Paris",
 							   false);
 
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Ich habe im luvre gearbeitet");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Heute habe ich dort gearbeitet");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Ich habe nichts falsch gemacht");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Alles schien ganz normal");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Ich bin eine putzkraft im luvre");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"Eine freundin und Kinder aus einer früheren beziehung");
-blackJanitor.addAnswer(new Audio('Answer.m4a'),"EIgentlich schon ... ich hätte nur gerne eine beförderung");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Ich habe im luvre gearbeitet");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Heute habe ich dort gearbeitet");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Ich habe nichts falsch gemacht");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Alles schien ganz normal");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Ich bin eine putzkraft im luvre");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "Eine freundin und Kinder aus einer früheren beziehung");
+blackJanitor.addAnswer(new Audio('Audio/Answer.m4a'), "EIgentlich schon ... ich hätte nur gerne eine beförderung");
 
 var frenchGuy = new person( "frenchGuy", 
 							"Francois Martinez",
@@ -117,10 +117,10 @@ var frenchGuy = new person( "frenchGuy",
 							"Centre Léon Bérard",
 							true);
 							
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"Ich habe mir die sterne angeschaut");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"Letztes wochenende mit meiner Frau");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"Nein ich weiss es nicht");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"NEIN!");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"Ich bin backmeister");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"Ich bin verheiratet");
-frenchGuy.addAnswer(new Audio('Answer.m4a'),"ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Ich habe mir die sterne angeschaut");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Letztes wochenende mit meiner Frau");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Nein ich weiss es nicht");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "NEIN!");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Ich bin backmeister");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "Ich bin verheiratet");
+frenchGuy.addAnswer(new Audio('Audio/Answer.m4a'), "ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");

@@ -84,7 +84,7 @@ image.table.frenchGuy.width = 750;
 image.table.frenchGuy.height = 500;
 
 image.table.blackJanitor = new Image();
-image.table.blackJanitor.src = "Images/table_janitor copy.png";
+image.table.blackJanitor.src = "Images/table_janitor.png";
 image.table.blackJanitor.width = 750;
 image.table.blackJanitor.height = 500;
 
