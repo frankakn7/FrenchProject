@@ -1,1 +1,3 @@
-Öffnen sie die auf der CD mit enthaltene HTML Datei in einem Browser ihrer wahl
+1. Laden sie alle auf dieser CD enthaltenen Dateien runter
+
+2. Öffnen sie die auf der CD mit enthaltene HTML Datei in einem Browser ihrer wahl
