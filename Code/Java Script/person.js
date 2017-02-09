@@ -10,7 +10,7 @@ var audioQuestion = {};
 audioQuestion[29] = new Audio('Code/Audio/Question.m4a');    //was hast du am samstag um 23:00 Uhr gemacht ?
 audioQuestion[60] = new Audio('Code/Audio/Question.m4a');    //wann waren sie das letzte mal im luvre ?
 audioQuestion[36] = new Audio('Code/Audio/Question.m4a');    //wissen sie warum sie hier sind ?
-audioQuestion[51] = new Audio('Code/Audio/Question.m4a');    //haben sie irgendwas gesehen ?
+audioQuestion[50] = new Audio('Code/Audio/Question.m4a');    //haben sie irgendwas gesehen ?
 audioQuestion[31] = new Audio('Code/Audio/Question.m4a');    //wo arbeiten sie ?
 audioQuestion[25] = new Audio('Code/Audio/Question.m4a');    //haben sie Familie ?
 audioQuestion[35] = new Audio('Code/Audio/Question.m4a');    //sind sie mit ihrem leben zufrieden ?
@@ -126,10 +126,10 @@ var frenchGuy = new person( "frenchGuy",
 							"Centre Léon Bérard",
 							true);
 							
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q1.m4a'), "Ich habe mir die sterne angeschaut");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q1.m4a'), "Ich war im restaurante");
 frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q2.m4a'), "Letztes wochenende mit meiner Frau");
 frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q3.m4a'), "Nein ich weiss es nicht");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q4.m4a'), "NEIN!");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q5.m4a'), "Ich bin backmeister");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q6.m4a'), "Ich bin verheiratet");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q7.m4a'), "ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q7.m4a'), "NEIN!");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q4.m4a'), "Ich bin backmeister");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q5.m4a'), "Ich bin verheiratet");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q6.m4a'), "ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");
