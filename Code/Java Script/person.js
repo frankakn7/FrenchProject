@@ -126,10 +126,10 @@ var frenchGuy = new person( "frenchGuy",
 							"Centre Léon Bérard",
 							true);
 							
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q1.m4a'), "Ich habe mir die sterne angeschaut");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q1.m4a'), "Ich war im restaurante");
 frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q2.m4a'), "Letztes wochenende mit meiner Frau");
 frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q3.m4a'), "Nein ich weiss es nicht");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q4.m4a'), "NEIN!");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q5.m4a'), "Ich bin backmeister");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q6.m4a'), "Ich bin verheiratet");
-frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q7.m4a'), "ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q7.m4a'), "NEIN!");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q4.m4a'), "Ich bin backmeister");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q5.m4a'), "Ich bin verheiratet");
+frenchGuy.addAnswer(new Audio('Code/Audio/P3_Q6.m4a'), "ALles ist super mein geschäft laeuft gut ... ich koennte nicht gluecklicher sein");
