@@ -72,7 +72,7 @@ var scene = {
 			
 			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "coupable");
 			gButton.clickFunction = function(){
-				gameState("ending");
+				gameState("ending",that.person);
 			}
 			iButton = new button(this.x + this.width / 2 + 10, this.y - 60, 150,50, "interroger");
 			iButton.clickFunction = function(){
@@ -88,7 +88,7 @@ var scene = {
 	interrogation: function(p){
 		
 		console.log(p.id);
-		console.log(image.background[p.id]);
+		//console.log(image.background[p.id]);
 		canvas.style.backgroundImage = "url("+image.background[p.id].src+")";
 		
 		var firstQuestion = p.questions[Math.round(Math.random()* (p.questions.length - 1))];
@@ -119,25 +119,26 @@ var scene = {
 			gameState("fotoWall");
 		};
 		
-		evidence = new button(canvas.width / 2 + 5, 445, canvas.width / 2 - 10, 50, 'Preuve');
+		evidence = new button(canvas.width / 2 + 5, 445, canvas.width / 2 - 10, 50, 'Acte Criminale');
 		evidence.clickFunction = function(){
 			gameState("evidence",p);
 		};
 		
 		activeButtons.push(back,evidence);
 	},
-	evidence: function(p){		
-
+	evidence: function (p) {
+	    canvas.style.backgroundImage = "url(" + image.table[p.id].src + ")";
 		
-		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Dos');
+		evidenceBack = new button(canvas.width / 2 - 35, 5, 70, 50, 'Dos');
 		evidenceBack.clickFunction = function(){
 			gameState("interrogation",p);
 		}
 		
 		activeButtons.push(evidenceBack);
 	},
-	ending: function(){		
-		console.log("The End");
+	ending: function(p){		
+	    console.log("The End");
+	    canvas.style.backgroundImage = "url(" + image.jail[p.id].src + ")";
 	},
 }
 function gameState(state, person) {

@@ -5,6 +5,8 @@ context.font = '30px Arial';
 var image = {};
 
 image.background = {};
+image.table = {};
+image.jail = {};
 
 image.background.start = new Image();
 image.background.start.src = "Images/Start.png";
@@ -70,3 +72,33 @@ image.frame = new Image();
 image.frame.src = "Images/frame.png"
 image.frame.width = 600;
 image.frame.height = 462;
+
+image.table.drunkGuy = new Image();
+image.table.drunkGuy.src = "Images/table_drunk.png";
+image.table.drunkGuy.width = 750;
+image.table.drunkGuy.height = 500;
+
+image.table.frenchGuy = new Image();
+image.table.frenchGuy.src = "Images/table_french.png";
+image.table.frenchGuy.width = 750;
+image.table.frenchGuy.height = 500;
+
+image.table.blackJanitor = new Image();
+image.table.blackJanitor.src = "Images/table_janitor copy.png";
+image.table.blackJanitor.width = 750;
+image.table.blackJanitor.height = 500;
+
+image.jail.drunkGuy = new Image();
+image.jail.drunkGuy.src = "Images/jail_drunk.png";
+image.jail.drunkGuy.width = 750;
+image.jail.drunkGuy.height = 500;
+
+image.jail.frenchGuy = new Image();
+image.jail.frenchGuy.src = "Images/jail_french.png";
+image.jail.frenchGuy.width = 750;
+image.jail.frenchGuy.height = 500;
+
+image.jail.blackJanitor = new Image();
+image.jail.blackJanitor.src = "Images/jail_janitor.png";
+image.jail.blackJanitor.width = 750;
+image.jail.blackJanitor.height = 500;

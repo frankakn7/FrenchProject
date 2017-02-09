@@ -10,7 +10,7 @@ function button(x, y, width, height, text, person, img) {
     this.color = 'black';
     this.text = text;
     this.lock = false;
-	this.person = person;
+    this.person = person;
 	
     this.draw = function () {
 	    if(img != undefined){
