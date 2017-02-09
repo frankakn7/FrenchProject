@@ -70,7 +70,7 @@ var scene = {
 	
 			var that = this;
 			
-			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "Coupabèe");
+			gButton = new button(this.x + this.width / 2 - 160, this.y - 60, 150,50, "Coupabe");
 			gButton.clickFunction = function(){
 				gameState("ending",that.person);
 			}
