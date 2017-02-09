@@ -23,7 +23,7 @@ var scene = {
 	    var frame = 1;
 	    context.drawImage(image.text1, 0, 0, image.text1.width, image.text1.height, 0, 0, canvas.width, canvas.height);
 		
-		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 100, 50, 'Next');
+		prologButton = new button((canvas.width / 2) - 50, canvas.height - 60, 128, 50, 'Prochain');
 		prologButton.clickFunction = function () {
 		    if (frame === 1) {
 		        context.drawImage(image.louvre, 0, 0, image.louvre.width, image.louvre.height, 0, 0, canvas.width, canvas.height);
@@ -114,12 +114,12 @@ var scene = {
 			activeButtons.push(Q1,Q2)
 		}
 		
-		back = new button(5,445, canvas.width / 2 - 5, 50, 'Back');
+		back = new button(5,445, canvas.width / 2 - 5, 50, 'Dos');
 		back.clickFunction = function(){
 			gameState("fotoWall");
 		};
 		
-		evidence = new button(canvas.width / 2 + 5,445, canvas.width / 2 - 10, 50, 'Evidence');
+		evidence = new button(canvas.width / 2 + 5, 445, canvas.width / 2 - 10, 50, 'Preuve');
 		evidence.clickFunction = function(){
 			gameState("evidence",p);
 		};
@@ -127,17 +127,14 @@ var scene = {
 		activeButtons.push(back,evidence);
 	},
 	evidence: function(p){		
-		E1 = new button(20,20,100,100, 'E1');
-		E1.clickFunction = function(){
-			console.log("Height: 170 cm");
-		}
+
 		
-		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Back');
+		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Dos');
 		evidenceBack.clickFunction = function(){
 			gameState("interrogation",p);
 		}
 		
-		activeButtons.push(E1,evidenceBack);
+		activeButtons.push(evidenceBack);
 	},
 	ending: function(){		
 		console.log("The End");
