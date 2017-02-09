@@ -1,10 +1,10 @@
-var questions =["was hast du am samstag um 23:00 Uhr gemacht ?", 
-				"wann waren sie das letzte mal im luvre ?", 
-				"wissen sie warum sie hier sind ?", 
-				"haben sie irgendwas gesehen ?", 
-				"wo arbeiten sie ?",
-				"haben sie Familie ?",
-				"sind sie mit ihrem leben zufrieden ?"];
+var questions =["Qu'avez-vous fait le samedi ?", 
+				"Quand ils sont eu attende pour la derniére fois au Louvre ?", 
+				"Vous savez pourquoi vous êtes ici ?", 
+				"Pouvez-vous nous dire quelque chose sur ce sujet 	?", 
+				"Ou est-ce que vous travaillez ?",
+				"Vous avez de la famille ?",
+				"Êtess-vous content avec votre vie ?"];
 
 var audioQuestion = {};
 audioQuestion[45] = new Audio('Code/Audio/Question.m4a');    //was hast du am samstag um 23:00 Uhr gemacht ?
