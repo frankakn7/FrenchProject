@@ -4,16 +4,16 @@ var questions =["Qu'avez-vous fait le samedi ?",
 				"Pouvez-vous nous dire quelque chose sur ce sujet 	?", 
 				"Ou est-ce que vous travaillez ?",
 				"Vous avez de la famille ?",
-				"Êtess-vous content avec votre vie ?"];
+				"Êtess-vous content avec votre vie?"];
 
 var audioQuestion = {};
-audioQuestion[45] = new Audio('Code/Audio/Question.m4a');    //was hast du am samstag um 23:00 Uhr gemacht ?
-audioQuestion[40] = new Audio('Code/Audio/Question.m4a');    //wann waren sie das letzte mal im luvre ?
-audioQuestion[32] = new Audio('Code/Audio/Question.m4a');    //wissen sie warum sie hier sind ?
-audioQuestion[29] = new Audio('Code/Audio/Question.m4a');    //haben sie irgendwas gesehen ?
-audioQuestion[17] = new Audio('Code/Audio/Question.m4a');    //wo arbeiten sie ?
-audioQuestion[19] = new Audio('Code/Audio/Question.m4a');    //haben sie Familie ?
-audioQuestion[36] = new Audio('Code/Audio/Question.m4a');    //sind sie mit ihrem leben zufrieden ?
+audioQuestion[29] = new Audio('Code/Audio/Question.m4a');    //was hast du am samstag um 23:00 Uhr gemacht ?
+audioQuestion[60] = new Audio('Code/Audio/Question.m4a');    //wann waren sie das letzte mal im luvre ?
+audioQuestion[36] = new Audio('Code/Audio/Question.m4a');    //wissen sie warum sie hier sind ?
+audioQuestion[51] = new Audio('Code/Audio/Question.m4a');    //haben sie irgendwas gesehen ?
+audioQuestion[31] = new Audio('Code/Audio/Question.m4a');    //wo arbeiten sie ?
+audioQuestion[25] = new Audio('Code/Audio/Question.m4a');    //haben sie Familie ?
+audioQuestion[35] = new Audio('Code/Audio/Question.m4a');    //sind sie mit ihrem leben zufrieden ?
 
 //new Audio('Code/Audio/Question.m4a');
 
@@ -84,13 +84,13 @@ var drunkGuy = new person( "drunkGuy",
 						   "Hôpital Desbief",
 						   false);
 
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "J'étais sur le chemin au restaurant");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Keine Ahnung");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Diesmal bin ich nicht betrunken auto gefahren");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Ich weiss nichts sie muessen mir glauben");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Ich bin arbeitslos");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Nein");
-drunkGuy.addAnswer(new Audio('Code/Audio/Answer.m4a'), "Nein ... meine Frau hat mich verlassen und ich bin arbeitslos");
+drunkGuy.addAnswer(new Audio('Code/Audio/P1_Q1.wav'), "J'étais sur le chemin au restaurant");
+drunkGuy.addAnswer(new Audio('Code/Audio/P1_Q2.wav'), "Keine Ahnung");
+drunkGuy.addAnswer(new Audio('Code/Audio/p1_q3.wav'), "Diesmal bin ich nicht betrunken auto gefahren");
+drunkGuy.addAnswer(new Audio('Code/Audio/p1_q7.wav'), "Ich weiss nichts sie muessen mir glauben");
+drunkGuy.addAnswer(new Audio('Code/Audio/p1_q4.wav'), "Ich bin arbeitslos");
+drunkGuy.addAnswer(new Audio('Code/Audio/p1_q5.wav'), "Nein");
+drunkGuy.addAnswer(new Audio('Code/Audio/p1_q6.wav'), "Nein ... meine Frau hat mich verlassen und ich bin arbeitslos");
 
 var blackJanitor = new person( "blackJanitor", 
 							   "noname",
