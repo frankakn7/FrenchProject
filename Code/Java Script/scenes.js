@@ -114,7 +114,7 @@ var scene = {
 			activeButtons.push(Q1,Q2)
 		}
 		
-		back = new button(5,445, canvas.width / 2 - 5, 50, 'Dos');
+		back = new button(5,445, canvas.width / 2 - 5, 50, 'Retour');
 		back.clickFunction = function(){
 			gameState("fotoWall");
 		};
@@ -129,7 +129,7 @@ var scene = {
 	evidence: function (p) {
 	    canvas.style.backgroundImage = "url(" + image.table[p.id].src + ")";
 		
-		evidenceBack = new button(canvas.width / 2 - 35, 5, 70, 50, 'Dos');
+		evidenceBack = new button(canvas.width / 2 - 50, 5, 100, 50, 'Retour');
 		evidenceBack.clickFunction = function(){
 			gameState("interrogation",p);
 		}
